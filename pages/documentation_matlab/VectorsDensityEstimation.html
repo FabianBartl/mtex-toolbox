@@ -31,7 +31,7 @@ cAxes.antipodal = true;
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0   58485 (24%)  notIndexed                                                 
@@ -41,11 +41,11 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [0 36550] x [0 16750] x [0 0]
+ X x Y x Z : [0, 36550] x [0, 16750] x [0, 0]
  Normal vector: (0,0,1)
  
  
-cAxes = vector3d
+cAxes = vector3d (y↑→x)
  size: 152345 x 1
 {% endhighlight %}
 
@@ -62,7 +62,7 @@ plot(pdf,'upper')
 {% endhighlight %}
 
 {% highlight plaintext %}
-pdf = S2FunHarmonic
+pdf = S2FunHarmonic (y↑→x)
   bandwidth: 25
   antipodal: true
   isReal: true

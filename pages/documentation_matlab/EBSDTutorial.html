@@ -41,7 +41,7 @@ ebsd = EBSD.load(fileName)
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0   58485 (24%)  notIndexed                                                 
@@ -51,14 +51,13 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [0 36550] x [0 16750] x [0 0]
+ X x Y x Z : [0, 36550] x [0, 16750] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <p>This command outputs ebsd data stored in a single variable, called <code class="language-plaintext highlighter-rouge">ebsd</code>. This variable contains all relevant information, i.e., the spatial coordinates, the orientation information, a description of the crystal symmetries and all other parameters contained in the input data file.</p>
 <h2 id="4">Phase Plots</h2>
 <p>In this example, the output above shows that the data set contains three different phases: Forsterite, Enstatite, and Diopside. The spatial distribution of the different phases can be visualized by the plotting command</p>
 {% highlight matlab %}
-plotx2east % this command tells MTEX to plot the x coordinates increasing to the east (left)
 plot(ebsd,'coordinates','on')
 {% endhighlight %}
 <center>
@@ -72,14 +71,14 @@ ebsd('Forsterite')
 {% endhighlight %}
 
 {% highlight plaintext %}
-ans = EBSD
+ans = EBSD (y↑→x)
  
  Phase   Orientations     Mineral         Color  Symmetry  Crystal reference frame
      1  152345 (100%)  Forsterite  LightSkyBlue       mmm                         
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [0 36550] x [0 16750] x [0 0]
+ X x Y x Z : [0, 36550] x [0, 16750] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <p>Now we may restrict the variable to Forsterite orientations by</p>
@@ -88,7 +87,7 @@ ebsd('Forsterite').orientations
 {% endhighlight %}
 
 {% highlight plaintext %}
-ans = orientation (Forsterite → xyz)
+ans = orientation (Forsterite → y↑→x)
   size: 152345 x 1
 {% endhighlight %}
 <p>and may use this syntax to plot an ipf map of all Forsterite orientations</p>
@@ -110,16 +109,16 @@ grains = smooth(grains,5);
 {% endhighlight %}
 
 {% highlight plaintext %}
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
-     1     427  147812  Forsterite       mmm                         
-     2     197   23896   Enstatite       mmm                         
-     3     139    6826    Diopside     12/m1       X||a*, Y||b*, Z||c
+     1     438  151531  Forsterite       mmm                         
+     2     207   25670   Enstatite       mmm                         
+     3     166    7421    Diopside     12/m1       X||a*, Y||b*, Z||c
  
- boundary segments: 32902 (1.5e+06 µm)
- inner boundary segments: 255 (11617 µm)
- triple points: 1346
+ boundary segments: 35640 (1.6e+06 µm)
+ inner boundary segments: 285 (13093 µm)
+ triple points: 1399
  
  Properties: meanRotation, GOS
 {% endhighlight %}
@@ -140,7 +139,7 @@ hold off
 cS = crystalShape.olivine(ebsd('Forsterite').CS)
 
 % select only Forsterite grains with more then 100 pixels
-grains = grains('Forsterite',grains.grainSize > 100);
+grains = grains('Forsterite',grains.numPixel > 100);
 
 % plot crystal shapes at the positions of the Forsterite grains
 hold on

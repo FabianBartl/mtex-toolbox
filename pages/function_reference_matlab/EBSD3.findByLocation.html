@@ -26,7 +26,7 @@ To make changes, update the MATLAB code and republish this document.
 <p>select EBSD data by spatial coordinates</p>
 <h2 id="3">Syntax</h2>
 {% highlight matlab %}
-map = findByLocation( ebsd, xy, y )
+ebsd = findByLocation(ebsd3, pos)
 {% endhighlight %}
 <h2 id="4">Input</h2>
 <p>
@@ -62,38 +62,7 @@ map = findByLocation( ebsd, xy, y )
       </tr>
    </table>
 </p>
-<h2 id="6">Example</h2>
-{% highlight matlab %}
-mtexdata forsterite
-plotx2east
-plot(ebsd)
-p = [10000 5000] %ginput(1)
-g = findByLocation(ebsd,p)
-{% endhighlight %}
-
-{% highlight plaintext %}
-ebsd = EBSD
- 
- Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
-     0   58485 (24%)  notIndexed                                                 
-     1  152345 (62%)  Forsterite  LightSkyBlue       mmm                         
-     2   26058 (11%)   Enstatite  DarkSeaGreen       mmm                         
-     3   9064 (3.7%)    Diopside     Goldenrod     12/m1       X||a*, Y||b*, Z||c
- 
- Properties: bands, bc, bs, error, mad
- Scan unit : um
- X x Y x Z : [0 36550] x [0 16750] x [0 0]
- Normal vector: (0,0,1)
- 
-p =
-       10000        5000
-g =
-       73401
-{% endhighlight %}
-<center>
-{% include inline_image.html file="EBSD3.findByLocation_01.png" %}
-</center>
-<h2 id="8">See also</h2>
+<h2 id="6">See also</h2>
 <p>
 <a href="EBSD.findByLocation.html">EBSD.findByLocation</a> <a href="grain2d.findByOrientation.html">grain2d.findByOrientation</a>
 </p>

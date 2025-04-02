@@ -50,7 +50,7 @@ ebsd = smooth(ebsd, F, 'fill', grains)
             <tt>F</tt>
          </td>
          <td>
-            <tt>@EBSDFilters</tt>
+            <tt><a href="EBSDFilter.html">EBSDFilter</a></tt>
          </td>
       </tr>
       <tr>
@@ -89,11 +89,11 @@ ebsd = smooth(ebsd, F, 'fill', grains)
 mtexdata forsterite;
 ebsd = ebsd('indexed');
 % segment grains
-[grains,ebsd.grainId] = calcGrains(ebsd);
+[grains,ebsd.grainId] = calcGrains(ebsd,'minPixel',4);
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0   58485 (24%)  notIndexed                                                 
@@ -103,13 +103,13 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [0 36550] x [0 16750] x [0 0]
+ X x Y x Z : [0, 36550] x [0, 16750] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 
 {% highlight matlab %}
 % find largest grains
-largeGrains = grains(grains.grainSize>800);
+largeGrains = grains(grains.numPixel>800);
 ebsd = ebsd(largeGrains(1));
 {% endhighlight %}
 
@@ -122,11 +122,6 @@ oM.inversePoleFigureDirection = mean(ebsd.orientations) * oM.whiteCenter;
 oM.colorStretching = 50;
 plot(ebsd,oM.orientation2color(ebsd.orientations))
 hold off
-{% endhighlight %}
-
-{% highlight plaintext %}
-Warning: Possibly applying an orientation to an object in specimen
-coordinates!
 {% endhighlight %}
 <center>
 {% include inline_image.html file="EBSD.smooth_01.png" %}

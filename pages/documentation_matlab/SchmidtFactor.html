@@ -62,7 +62,7 @@ r = normalize(vector3d(1,2,3))
 {% endhighlight %}
 
 {% highlight plaintext %}
-r = vector3d
+r = vector3d (y↑→x)
          x        y        z
   0.267261 0.534522 0.801784
 {% endhighlight %}
@@ -112,18 +112,17 @@ annotate(pos)
 {% endhighlight %}
 
 {% highlight plaintext %}
-SF = S2FunHarmonic
+SF = S2FunHarmonic (y↑→x)
   bandwidth: 4
   antipodal: true
-  isReal: true
  
 SFMax =
     0.5000
  
-pos = vector3d
+pos = vector3d (y↑→x)
  antipodal: true
-         x          y          z
-  0.408361 -0.0917056   0.908202
+        x          y          z
+  0.40836 -0.0917061   0.908203
 {% endhighlight %}
 <center>
 {% include inline_image.html file="SchmidtFactor_01.png" %}
@@ -135,7 +134,7 @@ sigma = stressTensor.uniaxial(vector3d.Z)
 {% endhighlight %}
 
 {% highlight plaintext %}
-sigma = stressTensor (xyz)
+sigma = stressTensor (y↑→x)
   rank: 2 (3 x 3)
  
  0 0 0
@@ -304,11 +303,10 @@ mtexColorbar
 {% endhighlight %}
 
 {% highlight plaintext %}
-tau = S2FunHarmonic
+tau = S2FunHarmonic (y↑→x)
   size: 24 x 1
   bandwidth: 4
   antipodal: true
-  isReal: true
 {% endhighlight %}
 <center>
 {% include inline_image.html file="SchmidtFactor_05.png" %}
@@ -324,7 +322,6 @@ ebsd = ebsd(ebsd.inpolygon([0,0,200,50]))
 grains = calcGrains(ebsd);
 grains = smooth(grains,5);
 
-plotx2east
 plot(ebsd,ebsd.orientations,'micronbar','off')
 hold on
 plot(grains.boundary,'linewidth',2)
@@ -332,25 +329,26 @@ hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
- Phase   Orientations  Mineral         Color  Symmetry  Crystal reference frame
-    -1  154107 (100%)     iron  LightSkyBlue      m-3m                         
+ Phase   Orientations     Mineral         Color  Symmetry  Crystal reference frame
+     0    5 (0.0032%)  notIndexed                                                 
+    -1  154107 (100%)        iron  LightSkyBlue      m-3m                         
  
  Properties: ci, error, iq
  Scan unit : um
- X x Y x Z : [0 511] x [0 300] x [0 0]
+ X x Y x Z : [0, 511] x [0, 300] x [0, 0]
  Normal vector: (0,0,1)
  
  
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations  Mineral         Color  Symmetry  Crystal reference frame
     -1  10251 (100%)     iron  LightSkyBlue      m-3m                         
  
  Properties: ci, error, iq
  Scan unit : um
- X x Y x Z : [0 200] x [0 50] x [0 0]
+ X x Y x Z : [0, 200] x [0, 50] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -375,7 +373,7 @@ sSLocal = grains.meanOrientation * sS
 {% endhighlight %}
 
 {% highlight plaintext %}
-sSLocal = slipSystem (xyz)
+sSLocal = slipSystem (y↑→x)
  CRSS: 1
  size: 71 x 24
 {% endhighlight %}
@@ -394,7 +392,7 @@ mtexColorbar location southoutside
 {% endhighlight %}
 
 {% highlight plaintext %}
-sigma = stressTensor (xyz)
+sigma = stressTensor (y↑→x)
   rank: 2 (3 x 3)
  
  0 0 0
@@ -473,7 +471,7 @@ mtexColorbar southoutside
 {% endhighlight %}
 
 {% highlight plaintext %}
-eps = strainTensor (xyz)
+eps = strainTensor (y↑→x)
   type: Lagrange 
   rank: 2 (3 x 3)
  

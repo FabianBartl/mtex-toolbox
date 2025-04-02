@@ -1,0 +1,85 @@
+---
+title: interpolate
+
+sidebar: function_reference_sidebar
+permalink: S2VectorFieldHarmonic.interpolate.html
+folder: function_reference
+toc: false
+---
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+    -->
+<title>interpolate</title>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.source" content="script_S2VectorFieldHarmonic__interpolate.m">
+</head>
+<body>
+<font size="2"><a href="https://github.com/mtex-toolbox/mtex/blob/develop/S2Fun/@S2VectorFieldHarmonic/interpolate.m">
+    edit page</a></font>
+<div>
+<!--introduction-->
+<!--/introduction-->
+<p>Interpolate an S2VectorField by given tangent vectors at given points on the sphere.</p>
+<h2 id="3">Syntax</h2>
+{% highlight matlab %}
+sVF = S2VectorField.interpolate(v, value)
+sVF = S2VectorField.interpolate(v, value, 'bandwidth', bw)
+{% endhighlight %}
+<h2 id="4">Input</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>value</tt>
+         </td>
+         <td>
+            <tt><a href="vector3d.vector3d.html">vector3d</a></tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>v</tt>
+         </td>
+         <td>
+            <tt><a href="vector3d.vector3d.html">vector3d</a></tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="5">Output</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>sVF</tt>
+         </td>
+         <td>
+            <tt><a href="S2VectorFieldHarmonic.S2VectorFieldHarmonic.html">S2VectorFieldHarmonic</a></tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="6">Options</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>bw</tt>
+         </td>
+         <td>
+            <tt>degree of the spherical harmonic (default: 128)</tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="7">See also</h2>
+<p>
+<a href="vector3d.interp.html">vector3d.interp</a> <a href="S2FunHarmonic.interpolate.html">S2FunHarmonic.interpolate</a>
+</p>
+</div>
+</body>
+</html>

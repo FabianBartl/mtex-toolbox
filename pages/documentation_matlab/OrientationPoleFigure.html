@@ -38,11 +38,11 @@ cs = crystalSymmetry
   reference frame: X||a*, Y||b, Z||c*
  
  
-ori = orientation (321 → xyz)
+ori = orientation (321 → y↑→x)
  
   Bunge Euler angles in degree
      phi1     Phi    phi2
-  10.5074 54.1577 44.1314
+  156.958 161.468 197.878
 {% endhighlight %}
 <p>Starting point is a fixed crystal direction <code class="language-plaintext highlighter-rouge">h</code>, e.g.,</p>
 {% highlight matlab %}
@@ -55,24 +55,24 @@ r = ori * h.symmetrise
 {% endhighlight %}
 
 {% highlight plaintext %}
-r = vector3d
+r = vector3d (y↑→x)
  size: 1 x 6
-          x          y          z
-   0.729026   0.614046   0.651768
-    1.12579  0.0207706  -0.255942
-   -1.12579 -0.0207706   0.255942
-  -0.729026  -0.614046  -0.651768
-   0.396761  -0.593276   -0.90771
-  -0.396761   0.593276    0.90771
+          x         y         z
+   0.879711 -0.739424 -0.112668
+    1.07555  0.340498  0.246148
+   -1.07555 -0.340498 -0.246148
+  -0.879711  0.739424  0.112668
+   0.195838   1.07992  0.358817
+  -0.195838  -1.07992 -0.358817
 {% endhighlight %}
-<p>and ploted in a spherical projection</p>
+<p>and plotted in a spherical projection</p>
 {% highlight matlab %}
 plot(r)
 {% endhighlight %}
 <center>
 {% include inline_image.html file="OrientationPoleFigure_01.png" %}
 </center>
-<p>Since the trigonal symmetry group has six symmetry elements the orientation appears at six possitions.</p>
+<p>Since the trigonal symmetry group has six symmetry elements the orientation appears at six positions.</p>
 <p>A shortcut for the above computations is the command</p>
 {% highlight matlab %}
 % a pole figure plot

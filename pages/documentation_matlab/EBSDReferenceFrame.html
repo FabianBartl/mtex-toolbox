@@ -52,7 +52,7 @@ plot(ebsd('olivine'),ebsd('olivine').orientations,'coordinates','on')
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations       Mineral         Color  Symmetry  Crystal reference frame
      1   44953 (90%)       olivine  LightSkyBlue       222                         
@@ -60,9 +60,9 @@ ebsd = EBSD
      3   2311 (4.6%)     Enstatite     Goldenrod       222                         
      4   1095 (2.2%)  Chalcopyrite    LightCoral       422                         
  
- Properties: ci, fit, iq, sem_signal, unknown1, unknown2, unknown3, unknown4, oldId
+ Properties: ci, fit, iq, sem_signal, unknown1, unknown2, unknown3, unknown4
  Scan unit : um
- X x Y x Z : [0 888] x [0 888] x [0 0]
+ X x Y x Z : [0, 888] x [0, 888] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -70,15 +70,15 @@ ebsd = EBSD
 </center>
 <p>The plot does not yet fit the alignment of the map in the EDAX software as it plots the x-axis be default to east and the z-axis into the plane. This is only a plotting convention and can be set in MTEX by</p>
 {% highlight matlab %}
-plotx2east
-plotzIntoPlane
+ebsd.how2plot.east = xvector;
+ebsd.how2plot.outOfScreen = -zvector;
 
 plot(ebsd('olivine'),ebsd('olivine').orientations,'coordinates','on')
 {% endhighlight %}
 <center>
 {% include inline_image.html file="EBSDReferenceFrame_02.png" %}
 </center>
-<p>Other plotting conventions are <code class="language-plaintext highlighter-rouge">plotx2north</code>, <code class="language-plaintext highlighter-rouge">plotx2west</code>, <code class="language-plaintext highlighter-rouge">plotx2south</code> and <code class="language-plaintext highlighter-rouge">plotzOutOfPlane</code>. Note that these options only alter the orientation of the EBSD map and the pole figures on the screen but does not change any data.</p>
+<p>Note that these options only alter the orientation of the EBSD map and the pole figures on the screen but does not change any data.</p>
 <h2 id="5">Verify the reference system</h2>
 <p>One way of verifying the reference systems is to visualize crystal shapes on top of the orientation map. To do this we proceed as follows</p>
 {% highlight matlab %}
@@ -89,7 +89,7 @@ grains = calcGrains(ebsd('indexed'));
 cS = crystalShape.olivine;
 
 % select only large grains
-largeGrains = grains(grains.grainSize>500)
+largeGrains = grains(grains.numPixel>500)
 
 % and plot the crystal shapes
 hold on
@@ -99,24 +99,24 @@ legend off
 {% endhighlight %}
 
 {% highlight plaintext %}
-largeGrains = grain2d
+largeGrains = grain2d (y↓→x)
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
      1       8    9556  olivine       222                         
  
- boundary segments: 2043 (7935 µm)
+ boundary segments: 2041 (7935 µm)
  inner boundary segments: 2 (8 µm)
  triple points: 582
  
    Id   Phase   Pixels       meanRotation      GOS
- 1058       1      508    (191°,63°,138°)   0.0045
- 1473       1      502   (108°,120°,182°)   0.0028
- 2203       1      708     (48°,66°,193°)    0.046
- 3177       1      510     (21°,69°,143°)   0.0058
- 3507       1     1463      (26°,53°,23°)    0.088
- 4216       1     1475     (26°,53°,199°)    0.091
- 5239       1     1191      (25°,58°,11°)    0.056
- 9773       1     3199     (133°,6°,322°)     0.05
+ 1215       1      508     (11°,117°,42°)   0.0045
+ 1684       1      510    (201°,111°,37°)   0.0058
+ 2911       1      708     (48°,66°,193°)    0.046
+ 3954       1     3199     (133°,6°,322°)     0.05
+ 5018       1     1191     (25°,58°,191°)    0.056
+ 9750       1      502   (108°,120°,182°)   0.0028
+ 9761       1     1463      (26°,53°,23°)    0.088
+ 9768       1     1475      (26°,53°,19°)    0.091
 {% endhighlight %}
 <center>
 {% include inline_image.html file="EBSDReferenceFrame_03.png" %}
@@ -140,7 +140,7 @@ ebsd_rot = rotate(ebsd,rot,'keepEuler');
 grains = calcGrains(ebsd_rot('indexed'));
 
 % select only large grains
-largeGrains = grains(grains.grainSize>500);
+largeGrains = grains(grains.numPixel>500);
 
 plot(ebsd_rot('olivine'),ebsd_rot('olivine').orientations,'coordinates','on')
 
@@ -162,7 +162,7 @@ ebsd_rot = rotate(ebsd,rot,'keepXY');
 grains = calcGrains(ebsd_rot('indexed'));
 
 % select only large grains
-largeGrains = grains(grains.grainSize>500);
+largeGrains = grains(grains.numPixel>500);
 
 
 plot(ebsd_rot('olivine'),ebsd_rot('olivine').orientations,'coordinates','on')
@@ -177,7 +177,7 @@ hold off
 {% include inline_image.html file="EBSDReferenceFrame_06.png" %}
 </center>
 <h2 id="10">Changing both reference system simultaneously</h2>
-<p>Sometimes it is necessary to relate the EBSD data to a different external reference frame, or to change the external reference frame from one to the other, e.g. if one wants to concatenate several ebsd data sets where the mounting was not done in perfect coincidence. In these cases the data has to be rotated or shifted by the commands <a href="EBSD.rotate.html">rotate</a> and <a href="EBSD.shift.html">shift</a>. The following commands rotate both reference frames of the entire data set by 5 degree about the z-axis.</p>
+<p>Sometimes it is necessary to relate the EBSD data to a different external reference frame, or to change the external reference frame from one to the other, e.g. if one wants to concatenate several ebsd data sets where the mounting was not done in perfect coincidence. In these cases the data has to be rotated or shifted by the commands <a href="EBSD.rotate.html"><code class="language-plaintext highlighter-rouge">rotate</code></a> and <a href="EBSD.shift.html"><code class="language-plaintext highlighter-rouge">shift</code></a>. The following commands rotate both reference frames of the entire data set by 5 degree about the z-axis.</p>
 {% highlight matlab %}
 % define a rotation
 rot = rotation.byAxisAngle(zvector,5*degree);
@@ -189,7 +189,7 @@ ebsd_rot = rotate(ebsd,rot);
 grains = calcGrains(ebsd_rot('indexed'));
 
 % select only large grains
-largeGrains = grains(grains.grainSize>500);
+largeGrains = grains(grains.numPixel>500);
 
 
 plot(ebsd_rot('olivine'),ebsd_rot('olivine').orientations,'coordinates','on')

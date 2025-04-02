@@ -383,6 +383,10 @@ entries:
           url: /vector3d.round.html
           output: web
 
+        - title: "round2zero"
+          url: /vector3d.round2zero.html
+          output: web
+
         - title: "scatter"
           url: /vector3d.scatter.html
           output: web
@@ -587,6 +591,10 @@ entries:
 
         - title: "LaueName"
           url: /symmetry.LaueName.html
+          output: web
+
+        - title: "WignerD"
+          url: /symmetry.WignerD.html
           output: web
 
         - title: "calcAngleDistribution"
@@ -1012,10 +1020,6 @@ entries:
           url: /crystalShape.repmat.html
           output: web
 
-        - title: "reshape"
-          url: /crystalShape.reshape.html
-          output: web
-
         - title: "rotate"
           url: /crystalShape.rotate.html
           output: web
@@ -1099,6 +1103,10 @@ entries:
 
         - title: "getMinAxes"
           url: /rotation.getMinAxes.html
+          output: web
+
+        - title: "interp"
+          url: /rotation.interp.html
           output: web
 
         - title: "isImproper"
@@ -1592,20 +1600,12 @@ entries:
           url: /sphericalRegion.eq.html
           output: web
 
-        - title: "horzcat"
-          url: /sphericalRegion.horzcat.html
-          output: web
-
         - title: "isLower"
           url: /sphericalRegion.isLower.html
           output: web
 
         - title: "isUpper"
           url: /sphericalRegion.isUpper.html
-          output: web
-
-        - title: "ne"
-          url: /sphericalRegion.ne.html
           output: web
 
         - title: "plot"
@@ -2431,6 +2431,10 @@ entries:
           url: /S2Triangulation.checkInside.html
           output: web
 
+        - title: "eq"
+          url: /S2Triangulation.eq.html
+          output: web
+
         - title: "plot"
           url: /S2Triangulation.plot.html
           output: web
@@ -2522,6 +2526,10 @@ entries:
 
         - title: "subsref"
           url: /quadratureSO3Grid.subsref.html
+          output: web
+
+        - title: "uniqueQuadratureSO3Grid"
+          url: /quadratureSO3Grid.uniqueQuadratureSO3Grid.html
           output: web
 
       - title: "embedding"
@@ -2732,6 +2740,10 @@ entries:
 
         - title: "polySgnArea"
           url: /polySgnArea.html
+          output: web
+
+        - title: "polySgnArea3"
+          url: /polySgnArea3.html
           output: web
 
         - title: "reflection"
@@ -3010,6 +3022,10 @@ entries:
           url: /EBSD.weightedBurgersVec.html
           output: web
 
+        - title: "simulateEBSD"
+          url: /simulateEBSD.simulateEBSD.html
+          output: web
+
       - title: "EBSDsquare"
         url: /EBSDsquare_index.html
         output: web
@@ -3035,6 +3051,10 @@ entries:
           url: /EBSDsquare.plotUnitCells.html
           output: web
 
+        - title: "pos2ind"
+          url: /EBSDsquare.pos2ind.html
+          output: web
+
         - title: "spatialProfile"
           url: /EBSDsquare.spatialProfile.html
           output: web
@@ -3045,10 +3065,6 @@ entries:
 
         - title: "subsind"
           url: /EBSDsquare.subsind.html
-          output: web
-
-        - title: "xy2ind"
-          url: /EBSDsquare.xy2ind.html
           output: web
 
       - title: "EBSDhex"
@@ -3243,6 +3259,14 @@ entries:
 
         - title: "quiver"
           url: /grain2d.quiver.html
+          output: web
+
+        - title: "reduceBoundary"
+          url: /grain2d.reduceBoundary.html
+          output: web
+
+        - title: "refineBoundary"
+          url: /grain2d.refineBoundary.html
           output: web
 
         - title: "rotate"
@@ -4728,20 +4752,12 @@ entries:
           url: /S2FunTri.le.html
           output: web
 
-        - title: "max"
-          url: /S2FunTri.max.html
-          output: web
-
         - title: "mean"
           url: /S2FunTri.mean.html
           output: web
 
         - title: "min"
           url: /S2FunTri.min.html
-          output: web
-
-        - title: "mtimes"
-          url: /S2FunTri.mtimes.html
           output: web
 
         - title: "plot"
@@ -4810,8 +4826,12 @@ entries:
           url: /S2FunHarmonic.acos.html
           output: web
 
-        - title: "approximation"
-          url: /S2FunHarmonic.approximation.html
+        - title: "adjoint"
+          url: /S2FunHarmonic.adjoint.html
+          output: web
+
+        - title: "approximate"
+          url: /S2FunHarmonic.approximate.html
           output: web
 
         - title: "calcSymAxis"
@@ -4874,6 +4894,10 @@ entries:
           url: /S2FunHarmonic.horzcat.html
           output: web
 
+        - title: "interpolate"
+          url: /S2FunHarmonic.interpolate.html
+          output: web
+
         - title: "isempty"
           url: /S2FunHarmonic.isempty.html
           output: web
@@ -4926,8 +4950,8 @@ entries:
           url: /S2FunHarmonic.rdivide.html
           output: web
 
-        - title: "regularisation"
-          url: /S2FunHarmonic.regularisation.html
+        - title: "regularize"
+          url: /S2FunHarmonic.regularize.html
           output: web
 
         - title: "reshape"
@@ -5090,8 +5114,8 @@ entries:
           url: /S2AxisFieldHarmonic.S2AxisFieldHarmonic.html
           output: web
 
-        - title: "approximation"
-          url: /S2AxisFieldHarmonic.approximation.html
+        - title: "approximate"
+          url: /S2AxisFieldHarmonic.approximate.html
           output: web
 
         - title: "cross"
@@ -5108,6 +5132,10 @@ entries:
 
         - title: "eval"
           url: /S2AxisFieldHarmonic.eval.html
+          output: web
+
+        - title: "interpolate"
+          url: /S2AxisFieldHarmonic.interpolate.html
           output: web
 
         - title: "quadrature"
@@ -5200,8 +5228,8 @@ entries:
           url: /S2VectorFieldHarmonic.S2VectorFieldHarmonic.html
           output: web
 
-        - title: "approximation"
-          url: /S2VectorFieldHarmonic.approximation.html
+        - title: "approximate"
+          url: /S2VectorFieldHarmonic.approximate.html
           output: web
 
         - title: "cross"
@@ -5218,6 +5246,10 @@ entries:
 
         - title: "eval"
           url: /S2VectorFieldHarmonic.eval.html
+          output: web
+
+        - title: "interpolate"
+          url: /S2VectorFieldHarmonic.interpolate.html
           output: web
 
         - title: "mean"
@@ -5421,12 +5453,20 @@ entries:
           url: /SO3Fun.cor.html
           output: web
 
+        - title: "crossCor"
+          url: /SO3Fun.crossCor.html
+          output: web
+
         - title: "discreteSample"
           url: /SO3Fun.discreteSample.html
           output: web
 
         - title: "display"
           url: /SO3Fun.display.html
+          output: web
+
+        - title: "dot"
+          url: /SO3Fun.dot.html
           output: web
 
         - title: "dubna"
@@ -5471,10 +5511,6 @@ entries:
 
         - title: "hist"
           url: /SO3Fun.hist.html
-          output: web
-
-        - title: "interpolate"
-          url: /SO3Fun.interpolate.html
           output: web
 
         - title: "inv"
@@ -5667,6 +5703,10 @@ entries:
           url: /SO3FunBingham.SO3FunBingham.html
           output: web
 
+        - title: "approximate"
+          url: /SO3FunBingham.approximate.html
+          output: web
+
         - title: "display"
           url: /SO3FunBingham.display.html
           output: web
@@ -5677,6 +5717,10 @@ entries:
 
         - title: "example"
           url: /SO3FunBingham.example.html
+          output: web
+
+        - title: "interpolate"
+          url: /SO3FunBingham.interpolate.html
           output: web
 
         - title: "mean"
@@ -5834,8 +5878,16 @@ entries:
           url: /SO3FunRBF.SO3FunRBF.html
           output: web
 
+        - title: "approximate"
+          url: /SO3FunRBF.approximate.html
+          output: web
+
         - title: "calcFourier"
           url: /SO3FunRBF.calcFourier.html
+          output: web
+
+        - title: "cat"
+          url: /SO3FunRBF.cat.html
           output: web
 
         - title: "conv"
@@ -5862,6 +5914,14 @@ entries:
           url: /SO3FunRBF.grad.html
           output: web
 
+        - title: "horzcat"
+          url: /SO3FunRBF.horzcat.html
+          output: web
+
+        - title: "interpolate"
+          url: /SO3FunRBF.interpolate.html
+          output: web
+
         - title: "inv"
           url: /SO3FunRBF.inv.html
           output: web
@@ -5882,12 +5942,20 @@ entries:
           url: /SO3FunRBF.rotate.html
           output: web
 
+        - title: "sum"
+          url: /SO3FunRBF.sum.html
+          output: web
+
         - title: "times"
           url: /SO3FunRBF.times.html
           output: web
 
         - title: "uminus"
           url: /SO3FunRBF.uminus.html
+          output: web
+
+        - title: "vertcat"
+          url: /SO3FunRBF.vertcat.html
           output: web
 
         - title: "volume"
@@ -5919,8 +5987,8 @@ entries:
           url: /SO3FunHarmonic.adjointNFSOFT.html
           output: web
 
-        - title: "approximation"
-          url: /SO3FunHarmonic.approximation.html
+        - title: "approximate"
+          url: /SO3FunHarmonic.approximate.html
           output: web
 
         - title: "calcFourier"
@@ -5981,6 +6049,10 @@ entries:
 
         - title: "horzcat"
           url: /SO3FunHarmonic.horzcat.html
+          output: web
+
+        - title: "interpolate"
+          url: /SO3FunHarmonic.interpolate.html
           output: web
 
         - title: "inv"
@@ -6045,6 +6117,10 @@ entries:
 
         - title: "rdivide"
           url: /SO3FunHarmonic.rdivide.html
+          output: web
+
+        - title: "regularize"
+          url: /SO3FunHarmonic.regularize.html
           output: web
 
         - title: "reshape"
@@ -6254,8 +6330,8 @@ entries:
           url: /SO3VectorFieldHarmonic.antiderivative.html
           output: web
 
-        - title: "approximation"
-          url: /SO3VectorFieldHarmonic.approximation.html
+        - title: "approximate"
+          url: /SO3VectorFieldHarmonic.approximate.html
           output: web
 
         - title: "conj"
@@ -6284,6 +6360,10 @@ entries:
 
         - title: "eval"
           url: /SO3VectorFieldHarmonic.eval.html
+          output: web
+
+        - title: "interpolate"
+          url: /SO3VectorFieldHarmonic.interpolate.html
           output: web
 
         - title: "left"
@@ -6766,6 +6846,10 @@ entries:
           url: /getHoldState.html
           output: web
 
+        - title: "getPixelPos"
+          url: /getPixelPos.html
+          output: web
+
         - title: "getUnitScale"
           url: /getUnitScale.html
           output: web
@@ -6826,48 +6910,20 @@ entries:
           url: /optionplot.html
           output: web
 
+        - title: "pix2data"
+          url: /pix2data.html
+          output: web
+
         - title: "plotEllipse"
           url: /plotEllipse.html
           output: web
 
+        - title: "plotEllipsoid"
+          url: /plotEllipsoid.html
+          output: web
+
         - title: "plotEmptySphere"
           url: /plotEmptySphere.html
-          output: web
-
-        - title: "plota2east"
-          url: /plota2east.html
-          output: web
-
-        - title: "plota2north"
-          url: /plota2north.html
-          output: web
-
-        - title: "plota2south"
-          url: /plota2south.html
-          output: web
-
-        - title: "plota2west"
-          url: /plota2west.html
-          output: web
-
-        - title: "plotaStar2east"
-          url: /plotaStar2east.html
-          output: web
-
-        - title: "plotb2east"
-          url: /plotb2east.html
-          output: web
-
-        - title: "plotb2north"
-          url: /plotb2north.html
-          output: web
-
-        - title: "plotb2south"
-          url: /plotb2south.html
-          output: web
-
-        - title: "plotb2west"
-          url: /plotb2west.html
           output: web
 
         - title: "plotx2east"
@@ -6930,10 +6986,6 @@ entries:
           url: /switchUnit.html
           output: web
 
-        - title: "zUpDown"
-          url: /zUpDown.html
-          output: web
-
   - title: "Tools"
     url: /tools_index.html
     output: web
@@ -6949,20 +7001,8 @@ entries:
         output: web
         subfolderitems:
 
-        - title: "NWSE"
-          url: /NWSE.html
-          output: web
-
-        - title: "UpDown"
-          url: /UpDown.html
-          output: web
-
         - title: "argin_check"
           url: /argin_check.html
-          output: web
-
-        - title: "calc_flags"
-          url: /calc_flags.html
           output: web
 
         - title: "checkOption"
@@ -6975,10 +7015,6 @@ entries:
 
         - title: "delete_option"
           url: /delete_option.html
-          output: web
-
-        - title: "displayClass"
-          url: /displayClass.html
           output: web
 
         - title: "extractSym"
@@ -7021,16 +7057,8 @@ entries:
           url: /get_flag.html
           output: web
 
-        - title: "get_obj_fields"
-          url: /get_obj_fields.html
-          output: web
-
         - title: "get_option"
           url: /get_option.html
-          output: web
-
-        - title: "makeDisjoint"
-          url: /makeDisjoint.html
           output: web
 
         - title: "mtex_path"
@@ -7041,8 +7069,8 @@ entries:
           url: /option2str.html
           output: web
 
-        - title: "rmallappdata"
-          url: /rmallappdata.html
+        - title: "setAllAppdata"
+          url: /setAllAppdata.html
           output: web
 
         - title: "setMTEXpref"
@@ -7059,14 +7087,6 @@ entries:
 
         - title: "set_option"
           url: /set_option.html
-          output: web
-
-        - title: "setappdata"
-          url: /setappdata.html
-          output: web
-
-        - title: "stripws"
-          url: /stripws.html
           output: web
 
       - title: "math"
@@ -7100,10 +7120,6 @@ entries:
 
         - title: "WignerD"
           url: /WignerD.html
-          output: web
-
-        - title: "Wigner_D"
-          url: /Wigner_D.html
           output: web
 
         - title: "Wigner_d_recursion"
@@ -7218,10 +7234,6 @@ entries:
           url: /times_outer.html
           output: web
 
-        - title: "wignerD2"
-          url: /wignerD2.html
-          output: web
-
       - title: "statistics"
         url: /statistic_tools_index.html
         output: web
@@ -7286,6 +7298,10 @@ entries:
 
         - title: "EulerTours"
           url: /EulerTours.html
+          output: web
+
+        - title: "calcPolygonsC"
+          url: /calcPolygonsC.html
           output: web
 
         - title: "connectedComponents"
@@ -7496,6 +7512,10 @@ entries:
           url: /dispStruct.html
           output: web
 
+        - title: "displayClass"
+          url: /displayClass.html
+          output: web
+
         - title: "doclink"
           url: /doclink.html
           output: web
@@ -7564,6 +7584,10 @@ entries:
           url: /logAxis.html
           output: web
 
+        - title: "makeDisjoint"
+          url: /makeDisjoint.html
+          output: web
+
         - title: "mtex_assert"
           url: /mtex_assert.html
           output: web
@@ -7608,6 +7632,10 @@ entries:
           url: /repcell.html
           output: web
 
+        - title: "rmallappdata"
+          url: /rmallappdata.html
+          output: web
+
         - title: "selectMaxbyColumn"
           url: /selectMaxbyColumn.html
           output: web
@@ -7646,6 +7674,14 @@ entries:
 
         - title: "stripStar"
           url: /stripStar.html
+          output: web
+
+        - title: "stripws"
+          url: /stripws.html
+          output: web
+
+        - title: "strong"
+          url: /strong.html
           output: web
 
         - title: "submatrix"

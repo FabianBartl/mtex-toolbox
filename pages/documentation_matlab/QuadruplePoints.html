@@ -38,8 +38,7 @@ rot = rotation.id(size(id));
 
 rot(id) = rotation.rand;
 
-
-ebsd = EBSDsquare([],rot,2*ones(size(rot)),1:2,{'not indexed',cs},[1 1]);
+ebsd = EBSDsquare([],rot,2*ones(size(rot)),1:2,{'not indexed',cs},'dxy',[1 1]);
 {% endhighlight %}
 
 {% highlight matlab %}
@@ -53,7 +52,7 @@ grains = calcGrains(ebsd,'removeQuadruplePoints')
 {% endhighlight %}
 
 {% highlight plaintext %}
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
      2       2      42     test         1      X||a*, Y||b*, Z||c*
@@ -62,9 +61,9 @@ grains = grain2d
  inner boundary segments: 0 (0 µm)
  triple points: 0
  
- Id   Phase   Pixels      meanRotation   GOS
-  1       2       15   (328°,133°,36°)     0
-  2       2       27        (0°,0°,0°)     0
+ Id   Phase   Pixels       meanRotation   GOS
+  1       2       15   (157°,161°,198°)     0
+  2       2       27         (0°,0°,0°)     0
 {% endhighlight %}
 
 {% highlight matlab %}
@@ -79,7 +78,7 @@ gB = grainBoundary
        26   26 µm  notIndexed       test
        26   26 µm        test       test
  
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
      2       2      42     test         1      X||a*, Y||b*, Z||c*
@@ -88,9 +87,9 @@ grains = grain2d
  inner boundary segments: 0 (0 µm)
  triple points: 0
  
- Id   Phase   Pixels      meanRotation   GOS
-  1       2       15   (328°,133°,36°)     0
-  2       2       27        (0°,0°,0°)     0
+ Id   Phase   Pixels       meanRotation   GOS
+  1       2       15   (157°,161°,198°)     0
+  2       2       27         (0°,0°,0°)     0
 {% endhighlight %}
 
 {% highlight matlab %}
@@ -98,7 +97,7 @@ grains = smooth(grains,1,'moveTriplePoints')
 {% endhighlight %}
 
 {% highlight plaintext %}
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
      2       2      42     test         1      X||a*, Y||b*, Z||c*
@@ -107,9 +106,9 @@ grains = grain2d
  inner boundary segments: 0 (0 µm)
  triple points: 0
  
- Id   Phase   Pixels      meanRotation   GOS
-  1       2       15   (328°,133°,36°)     0
-  2       2       27        (0°,0°,0°)     0
+ Id   Phase   Pixels       meanRotation   GOS
+  1       2       15   (157°,161°,198°)     0
+  2       2       27         (0°,0°,0°)     0
 {% endhighlight %}
 
 {% highlight matlab %}

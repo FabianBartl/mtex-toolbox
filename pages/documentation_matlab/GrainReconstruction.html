@@ -26,7 +26,7 @@ To make changes, update the MATLAB code and republish this document.
 <p>By grain reconstruction we mean the subdivision of the specimen, or more precisely the measured surface of the specimen, into regions of similar orientation which we then call grains. Note that there is no canonical definition of what is a grain. The default grain reconstruction method in MTEX is based on the definition of high angle grain boundaries which are assumed at the perpendicular bisector between neighboring measurements whenever their misorientation angle exceeds a certain threshold. According to this point of view grains are regions surrounded by grain boundaries.</p>
 <p>In order to illustrate the grain reconstruction process we consider the following sample data set</p>
 {% highlight matlab %}
-close all; plotx2east
+close all
 
 % import the data
 mtexdata forsterite
@@ -42,7 +42,7 @@ plot(ebsd)
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0   58485 (24%)  notIndexed                                                 
@@ -52,7 +52,7 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [0 36550] x [0 16750] x [0 0]
+ X x Y x Z : [0, 36550] x [0, 16750] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -77,16 +77,16 @@ grains
 {% endhighlight %}
 
 {% highlight plaintext %}
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
-     1      57   13850  Forsterite       mmm                         
-     2      16    1172   Enstatite       mmm                         
-     3      20     657    Diopside     12/m1       X||a*, Y||b*, Z||c
+     1      58   14017  Forsterite       mmm                         
+     2      15    1375   Enstatite       mmm                         
+     3      21     693    Diopside     12/m1       X||a*, Y||b*, Z||c
  
- boundary segments: 3907 (177959 µm)
- inner boundary segments: 0 (0 µm)
- triple points: 80
+ boundary segments: 3738 (171022 µm)
+ inner boundary segments: 1 (19 µm)
+ triple points: 112
  
  Properties: meanRotation, GOS
 {% endhighlight %}
@@ -120,9 +120,14 @@ hold off
 {% include inline_image.html file="GrainReconstruction_03.png" %}
 </center>
 <h2 id="5">Adapting the Alpha Parameter</h2>
-<p>Increasing the parameter <code class="language-plaintext highlighter-rouge">'alpha'</code> larger unindexed regions are associated to grains.</p>
+<p>Increasing the parameter <code class="language-plaintext highlighter-rouge">'alpha'</code> larger not indexed regions are associated to grains.</p>
 {% highlight matlab %}
-[grains, ebsd.grainId] = calcGrains(ebsd,'alpha',10,'angle',10*degree,'minPixel',5);
+% reload the data
+mtexdata forsterite silent
+ebsd = ebsd(inpolygon(ebsd,[5 2 10 5]*10^3));
+ebsd = ebsd.gridify;
+
+[grains, ebsd.grainId] = calcGrains(ebsd,'alpha',10,'angle',10*degree,'minPixel',3);
 grains = smooth(grains,5);
 
 % plot the boundary of all grains

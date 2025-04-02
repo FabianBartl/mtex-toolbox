@@ -25,7 +25,7 @@ To make changes, update the MATLAB code and republish this document.
 <!--/introduction-->
 <p>Here we describe how to visualize grain boundary properties, e.g., misorientation angle, misorientation axes. Therefore lets start by importing some EBSD data and reconstructing the grain structure.</p>
 {% highlight matlab %}
-close all; plotx2east
+close all;
 
 % import the data
 mtexdata forsterite
@@ -41,7 +41,7 @@ grains = smooth(grains,4);
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0   58485 (24%)  notIndexed                                                 
@@ -51,7 +51,7 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [0 36550] x [0 16750] x [0 0]
+ X x Y x Z : [0, 36550] x [0, 16750] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <p>The grain boundary segments of a list of grains are stored within the field</p>
@@ -63,17 +63,17 @@ gB = grains.boundary
 gB = grainBoundary
  
  Segments    length   mineral 1   mineral 2
-      883  27479 µm  notIndexed  Forsterite
-       35   1563 µm  notIndexed   Enstatite
-       43   1361 µm  notIndexed    Diopside
-     1403  58204 µm  Forsterite  Forsterite
-      566  25123 µm  Forsterite   Enstatite
-      476  19543 µm  Forsterite    Diopside
-       23   1157 µm   Enstatite   Enstatite
-       89   3594 µm   Enstatite    Diopside
-       28   1250 µm    Diopside    Diopside
+      869  27592 µm  notIndexed  Forsterite
+       36   1562 µm  notIndexed   Enstatite
+       42   1361 µm  notIndexed    Diopside
+     1398  56197 µm  Forsterite  Forsterite
+      654  26372 µm  Forsterite   Enstatite
+      522  20750 µm  Forsterite    Diopside
+       35   1296 µm   Enstatite   Enstatite
+      134   5802 µm   Enstatite    Diopside
+       23    951 µm    Diopside    Diopside
 {% endhighlight %}
-<p>We may use the <a href="grainBoundary.plot.html">plot</a> command to visualize the grain boundaries in the map</p>
+<p>We may use the <a href="grainBoundary.plot.html"><code class="language-plaintext highlighter-rouge">plot</code></a> command to visualize the grain boundaries in the map</p>
 {% highlight matlab %}
 % plot phases and grain boundaries
 plot(ebsd)
@@ -99,8 +99,9 @@ hold off
 ans = grainBoundary
  
  Segments   length   mineral 1   mineral 2
-       78  2929 µm  Forsterite  Forsterite
-        8   505 µm  Forsterite   Enstatite
+       81  3365 µm  Forsterite  Forsterite
+       16   720 µm  Forsterite   Enstatite
+        9   386 µm  Forsterite    Diopside
 {% endhighlight %}
 <center>
 {% include inline_image.html file="BoundaryPlots_02.png" %}
@@ -160,7 +161,7 @@ mtexColorbar('visible','off')
 
 {% highlight plaintext %}
 axes = Miller (Forsterite)
- size: 1403 x 1
+ size: 1398 x 1
 {% endhighlight %}
 <center>
 {% include inline_image.html file="BoundaryPlots_06.png" %}
@@ -203,13 +204,13 @@ hold off
 gB_red = grainBoundary
  
  Segments    length   mineral 1   mineral 2
-      281  11571 µm  Forsterite  Forsterite
+      280  11373 µm  Forsterite  Forsterite
  
-ori = orientation (Forsterite → xyz)
-  size: 281 x 2
+ori = orientation (Forsterite → y↑→x)
+  size: 280 x 2
  
-axes = vector3d
- size: 281 x 1
+axes = vector3d (y↑→x)
+ size: 280 x 1
 {% endhighlight %}
 <center>
 {% include inline_image.html file="BoundaryPlots_08.png" %}
@@ -228,7 +229,8 @@ colorKey = PatalaColorKey(gB_Fo);
 hold on
 plot(gB_Fo,'linewidth',7)
 hold on
-plot(gB_Fo,colorKey.orientation2color(gB_Fo.misorientation),'linewidth',4)
+color = colorKey.orientation2color(gB_Fo.misorientation);
+plot(gB_Fo,squeeze(color),'linewidth',4)
 hold off
 {% endhighlight %}
 <center>
@@ -266,20 +268,22 @@ plot(grains,grains.meanOrientation,'FaceAlpha',0.4)
 
 % define the color key and colorize the grain boundaries
 colorKey = PatalaColorKey(gB)
+color = colorKey.orientation2color(gB.misorientation);
 hold on
-plot(gB,colorKey.orientation2color(gB.misorientation),'linewidth',4,'smooth')
+plot(gB,squeeze(color),'linewidth',4,'smooth')
 hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
- Phase   Orientations  Mineral         Color  Symmetry  Crystal reference frame
-    -1  154107 (100%)     iron  LightSkyBlue      m-3m                         
+ Phase   Orientations     Mineral         Color  Symmetry  Crystal reference frame
+     0    5 (0.0032%)  notIndexed                                                 
+    -1  154107 (100%)        iron  LightSkyBlue      m-3m                         
  
  Properties: ci, error, iq
  Scan unit : um
- X x Y x Z : [0 511] x [0 300] x [0 0]
+ X x Y x Z : [0, 511] x [0, 300] x [0, 0]
  Normal vector: (0,0,1)
  
 colorKey = 

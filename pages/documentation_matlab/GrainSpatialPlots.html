@@ -48,16 +48,16 @@ plot(grains)
 {% endhighlight %}
 
 {% highlight plaintext %}
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
-     1     427  147812  Forsterite       mmm                         
-     2     197   23896   Enstatite       mmm                         
-     3     139    6826    Diopside     12/m1       X||a*, Y||b*, Z||c
+     1     438  151531  Forsterite       mmm                         
+     2     207   25670   Enstatite       mmm                         
+     3     166    7421    Diopside     12/m1       X||a*, Y||b*, Z||c
  
- boundary segments: 32902 (1.5e+06 µm)
- inner boundary segments: 255 (11617 µm)
- triple points: 1346
+ boundary segments: 35640 (1.6e+06 µm)
+ inner boundary segments: 285 (13093 µm)
+ triple points: 1399
  
  Properties: meanRotation, GOS
 {% endhighlight %}
@@ -157,16 +157,16 @@ ebsd_maxGrain = ebsd(grains(id));
 
 {% highlight plaintext %}
 id =
-   266
+   279
  
-ebsd_maxGrain = EBSD
+ebsd_maxGrain = EBSD (y↑→x)
  
  Phase  Orientations     Mineral   Color  Symmetry  Crystal reference frame
-     1   2672 (100%)  Forsterite  Salmon       mmm                         
+     1   2683 (100%)  Forsterite  Salmon       mmm                         
  
  Properties: bands, bc, bs, error, mad, grainId, mis2mean
  Scan unit : um
- X x Y x Z : [16000 19350] x [1550 6800] x [0 0]
+ X x Y x Z : [16000, 19350] x [1550, 6800] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 
@@ -210,14 +210,15 @@ hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
- Phase   Orientations  Mineral         Color  Symmetry  Crystal reference frame
-    -1  154107 (100%)     iron  LightSkyBlue      m-3m                         
+ Phase   Orientations     Mineral         Color  Symmetry  Crystal reference frame
+     0    5 (0.0032%)  notIndexed                                                 
+    -1  154107 (100%)        iron  LightSkyBlue      m-3m                         
  
  Properties: ci, error, iq
  Scan unit : um
- X x Y x Z : [0 511] x [0 300] x [0 0]
+ X x Y x Z : [0, 511] x [0, 300] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -230,7 +231,7 @@ ebsd = EBSD
 plot(grains,grains.meanOrientation,'micronbar','off','region',[50 300 100 250])
 
 % only the big grains
-big_grains = grains(grains.grainSize>100);
+big_grains = grains(grains.numPixel>100);
 
 % plot on top their ids
 text(big_grains,int2str(big_grains.id))

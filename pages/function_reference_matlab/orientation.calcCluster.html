@@ -90,7 +90,7 @@ ori = odf.discreteSample(1500);
 {% endhighlight %}
 
 {% highlight plaintext %}
-odf = SO3FunRBF (432 → xyz)
+odf = SO3FunRBF (432 → y↑→x)
  
   multimodal components
   kernel: de la Vallee Poussin, halfwidth 5°
@@ -98,34 +98,16 @@ odf = SO3FunRBF (432 → xyz)
  
   Bunge Euler angles in degree
      phi1     Phi    phi2  weight
-  89.4853 137.123 264.307     0.2
-    88.93 37.2102 33.2772     0.2
-  206.735 28.2847 248.627     0.2
-  123.733 176.985 187.827     0.2
-  109.525 87.7096 353.512     0.2
+  156.958 109.836 223.608     0.2
+  9.33344 126.207 190.491     0.2
+  197.878 76.1995 48.4488     0.2
+  156.716 113.621 184.888     0.2
+  151.332 117.797 66.3984     0.2
 {% endhighlight %}
 
 {% highlight matlab %}
 % find the clusters and its centers
 [cId,centerRec] = calcCluster(ori,'silent');
-{% endhighlight %}
-
-{% highlight plaintext %}
-Step size:1°
-Step size:0.20972°
-Step size:0.068719°
-Step size:1°
-Step size:0.20972°
-Step size:0.085899°
-Step size:1.9531°
-Step size:3.0518°
-Step size:1°
-Step size:0.26214°
-Step size:0.085899°
-Step size:1°
-Step size:0.512°
-Step size:0.16777°
-Step size:0.13422°
 {% endhighlight %}
 
 {% highlight matlab %}

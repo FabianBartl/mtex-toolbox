@@ -30,7 +30,6 @@ To make changes, update the MATLAB code and republish this document.
 {% highlight matlab %}
 % take some MTEX data set
 mtexdata forsterite
-plotx2east
 
 % define a sub region
 xmin = 25000;
@@ -51,7 +50,7 @@ ebsd = ebsd(condition);
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0   58485 (24%)  notIndexed                                                 
@@ -61,7 +60,7 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [0 36550] x [0 16750] x [0 0]
+ X x Y x Z : [0, 36550] x [0, 16750] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -77,16 +76,8 @@ seg_angle = 10;
 min_points = 10;
 
 % restrict to indexed only points
-[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd('indexed'),'angle',seg_angle*degree);
-
-% remove small grains with less than min_points indexed points
-grains = grains(grains.grainSize > min_points);
-
-% re-calculate grain model to cleanup grain boundaries with less than
-% minimum index points used ebsd points within grains having the minimum
-% indexed number of points (e.g. 10 points)
-ebsd = ebsd(grains);
-[grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd('indexed'),'angle',seg_angle*degree);
+[grains,ebsd.grainId,ebsd.mis2mean] = ...
+  calcGrains(ebsd('indexed'),'angle',seg_angle*degree,'minPixel',min_points);
 
 % smooth grains
 grains = smooth(grains,4);

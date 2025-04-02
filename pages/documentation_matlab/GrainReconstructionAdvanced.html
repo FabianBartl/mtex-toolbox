@@ -27,7 +27,7 @@ To make changes, update the MATLAB code and republish this document.
 {% highlight matlab %}
 mtexdata small
 [grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd);
-ebsd(grains(grains.grainSize<=3)) = [];
+ebsd(grains(grains.numPixel<=3)) = [];
 [grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd);
 F = splineFilter;
 ebsd = smooth(ebsd,F);
@@ -39,7 +39,7 @@ hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0    1197 (32%)  notIndexed                                                 
@@ -49,7 +49,7 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [33000 36000] x [4500 7500] x [0 0]
+ X x Y x Z : [33000, 36000] x [4500, 7500] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -59,7 +59,7 @@ ebsd = EBSD
 {% highlight matlab %}
 mtexdata small
 [grains,ebsd('indexed').grainId] = calcGrains(ebsd('indexed'));
-ebsd(grains(grains.grainSize<=3)) = [];
+ebsd(grains(grains.numPixel<=3)) = [];
 [grains,ebsd('indexed').grainId] = calcGrains(ebsd('indexed'));
 F = splineFilter;
 ebsd = smooth(ebsd('indexed'),F);
@@ -73,7 +73,7 @@ hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0    1197 (32%)  notIndexed                                                 
@@ -83,7 +83,7 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [33000 36000] x [4500 7500] x [0 0]
+ X x Y x Z : [33000, 36000] x [4500, 7500] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -93,7 +93,7 @@ ebsd = EBSD
 {% highlight matlab %}
 mtexdata small
 [grains,ebsd.grainId] = calcGrains(ebsd);
-ebsd(grains(grains.grainSize<=3)) = [];
+ebsd(grains(grains.numPixel<=3)) = [];
 [grains,ebsd.grainId] = calcGrains(ebsd);
 F = splineFilter;
 ebsd = smooth(ebsd,F,'fill');
@@ -107,7 +107,7 @@ hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0    1197 (32%)  notIndexed                                                 
@@ -117,7 +117,7 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [33000 36000] x [4500 7500] x [0 0]
+ X x Y x Z : [33000, 36000] x [4500, 7500] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -127,7 +127,7 @@ ebsd = EBSD
 {% highlight matlab %}
 mtexdata small
 [grains,ebsd('indexed').grainId] = calcGrains(ebsd('indexed'));
-ebsd(grains(grains.grainSize<=3)) = [];
+ebsd(grains(grains.numPixel<=3)) = [];
 [grains,ebsd('indexed').grainId] = calcGrains(ebsd('indexed'));
 F = splineFilter;
 ebsd = smooth(ebsd('indexed'),F,'fill');
@@ -141,7 +141,7 @@ hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0    1197 (32%)  notIndexed                                                 
@@ -151,7 +151,7 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [33000 36000] x [4500 7500] x [0 0]
+ X x Y x Z : [33000, 36000] x [4500, 7500] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -161,7 +161,7 @@ ebsd = EBSD
 {% highlight matlab %}
 mtexdata small
 [grains,ebsd('indexed').grainId] = calcGrains(ebsd('indexed'));
-ebsd(grains(grains.grainSize<=3)) = [];
+ebsd(grains(grains.numPixel<=3)) = [];
 [grains,ebsd('indexed').grainId] = calcGrains(ebsd('indexed'));
 F = splineFilter;
 ebsd = smooth(ebsd('indexed'),F,'fill',grains);
@@ -176,7 +176,7 @@ drawNow(gcm)
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0    1197 (32%)  notIndexed                                                 
@@ -186,7 +186,7 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [33000 36000] x [4500 7500] x [0 0]
+ X x Y x Z : [33000, 36000] x [4500, 7500] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -205,7 +205,7 @@ drawNow(gcm)
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0    1197 (32%)  notIndexed                                                 
@@ -215,18 +215,18 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [33000 36000] x [4500 7500] x [0 0]
+ X x Y x Z : [33000, 36000] x [4500, 7500] x [0, 0]
  Normal vector: (0,0,1)
  
  
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1      23    1952  Forsterite       mmm                         
      2       7     290   Enstatite       mmm                         
      3      38     282    Diopside     12/m1       X||a*, Y||b*, Z||c
  
- boundary segments: 1179 (53903 µm)
+ boundary segments: 1177 (53903 µm)
  inner boundary segments: 0 (0 µm)
  triple points: 60
  
@@ -248,13 +248,13 @@ plot(ebsd,colorKey.orientation2color(ebsd.orientations))
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations  Mineral         Color  Symmetry  Crystal reference frame
      1  10201 (100%)       Al  LightSkyBlue      m-3m                         
  
  Scan unit : um
- X x Y x Z : [6 16] x [4 14] x [0 0]
+ X x Y x Z : [6, 16] x [4, 14] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -294,12 +294,12 @@ grains_FMC = smooth(grains_FMC);
 {% endhighlight %}
 
 {% highlight plaintext %}
-grains_FMC = grain2d
+grains_FMC = grain2d (y↑→x)
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
      1      17   10201       Al      m-3m                         
  
- boundary segments: 1949 (156 µm)
+ boundary segments: 1937 (156 µm)
  inner boundary segments: 0 (0 µm)
  triple points: 14
  
@@ -323,12 +323,12 @@ grains_FMC = grain2d
  17       1      780    (238°,78°,321°)    0.012
  
  
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
      1       1   10201       Al      m-3m                         
  
- boundary segments: 801 (41 µm)
+ boundary segments: 789 (41 µm)
  inner boundary segments: 0 (0 µm)
  triple points: 0
  
@@ -381,14 +381,14 @@ F =
     threshold: 0.2618
         isHex: 0
  
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations  Mineral         Color  Symmetry  Crystal reference frame
      1  10201 (100%)       Al  LightSkyBlue      m-3m                         
  
  Properties: oldId, quality
  Scan unit : um
- X x Y x Z : [6 16] x [4 14] x [0 0]
+ X x Y x Z : [6, 16] x [4, 14] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 
@@ -403,24 +403,24 @@ hold on;plot(grains.boundary,'linewidth',2); hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
      1     285   10201       Al      m-3m                         
  
- boundary segments: 4119 (374 µm)
+ boundary segments: 4107 (374 µm)
  inner boundary segments: 16502 (1656 µm)
  triple points: 423
  
  Properties: meanRotation, GOS
  
  
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels  Mineral  Symmetry  Crystal reference frame
      1     285   10201       Al      m-3m                         
  
- boundary segments: 4119 (372 µm)
+ boundary segments: 4107 (372 µm)
  inner boundary segments: 16502 (1650 µm)
  triple points: 423
  

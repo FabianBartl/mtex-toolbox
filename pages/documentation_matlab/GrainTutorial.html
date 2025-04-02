@@ -32,7 +32,7 @@ plot(ebsd)
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      1    3444 (28%)    Andesina  LightSkyBlue        -1              X||a*, Z||c
@@ -41,13 +41,13 @@ ebsd = EBSD
      4    4781 (38%)  Orthoclase    LightCoral     12/m1       X||a*, Y||b*, Z||c
  
  Scan unit : um
- X x Y x Z : [15000 24000] x [1020 3990] x [0 0]
+ X x Y x Z : [15000, 24000] x [1020, 3990] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
 {% include inline_image.html file="GrainTutorial_01.png" %}
 </center>
-<p>The phase map shows a multi-phase rock specimen with Andesina, Quartz, Biotite and Orthoclase. Lets restrict it to a smaller region of interest. The rectangle is defined by [xmin, ymin, xmax-xmin, ymax-ymin].</p>
+<p>The phase map displays a multi-phase rock specimen with phases such as Andesine, Quartz, Biotite, and Orthoclase. We will now focus on a smaller rectangular region of interest defined by the coordinates <code class="language-plaintext highlighter-rouge">[xmin, ymin, xmax - xmin, ymax - ymin]</code>.</p>
 {% highlight matlab %}
 region = [19000 1500 4000 1500];
 % overlay the selected region on the phase map
@@ -62,7 +62,7 @@ ebsd_region = ebsd(inpolygon(ebsd,region))
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd_region = EBSD
+ebsd_region = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      1     578 (20%)    Andesina  LightSkyBlue        -1              X||a*, Z||c
@@ -71,7 +71,7 @@ ebsd_region = EBSD
      4    1066 (37%)  Orthoclase    LightCoral     12/m1       X||a*, Y||b*, Z||c
  
  Scan unit : um
- X x Y x Z : [19020 22980] x [1500 3000] x [0 0]
+ X x Y x Z : [19020, 22980] x [1500, 3000] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <h2 id="4">Grain Reconstruction</h2>
@@ -89,7 +89,7 @@ hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-grains = grain2d
+grains = grain2d (y↑→x)
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1     371     578    Andesina        -1              X||a*, Z||c
@@ -97,7 +97,7 @@ grains = grain2d
      3      55      58     Biotite     2/m11       X||a*, Y||b*, Z||c
      4     380    1066  Orthoclase     12/m1       X||a*, Y||b*, Z||c
  
- boundary segments: 4628 (157002 µm)
+ boundary segments: 4626 (157002 µm)
  inner boundary segments: 1 (45 µm)
  triple points: 1333
  
@@ -123,7 +123,7 @@ hold off
 <center>
 {% include inline_image.html file="GrainTutorial_04.png" %}
 </center>
-<p>For the map created, most of the phases are colored based on where they exist, while only the Quartz phase is colored according to the orientation. The quartz orientations are colored using the following ipf color key</p>
+<p>In this visualization most phases are displayed in uniform colors, while Quartz is colored according to the ipf color key</p>
 {% highlight matlab %}
 close all
 ipfKey = ipfColorKey(ebsd_region('Quartz'));
@@ -132,7 +132,7 @@ plot(ipfKey)
 <center>
 {% include inline_image.html file="GrainTutorial_05.png" %}
 </center>
-<p>Alternatively, we may colorize each quartz grain according to its mean orientation. Again, the other phases are colored based on where they exist.</p>
+<p>Alternatively, we can display each quartz grain according to its mean orientation.</p>
 {% highlight matlab %}
 plot(grains({'Andesina','Biotite','Orthoclase'}),'FaceAlpha',0.4)
 hold on
@@ -143,7 +143,7 @@ legend off
 {% include inline_image.html file="GrainTutorial_06.png" %}
 </center>
 <h2 id="8">Highlight specific boundaries</h2>
-<p>We can create a phase map with certain grain boundaries highlighted. In this case, we highlight where adjacent grains of Andesina and Orthoclase have a misorientation with rotational axis close to the c-axis.</p>
+<p>We can create a phase map with certain grain boundaries highlighted. In this phase map, we highlight grain boundaries where neighboring grains of Andesine and Orthoclase exhibit a misorientation with a rotational axis close to the c-axis.</p>
 {% highlight matlab %}
 close all
 % copy all boundaries between Andesina, Orthoclase to a new variable

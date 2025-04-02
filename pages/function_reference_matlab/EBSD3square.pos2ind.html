@@ -1,0 +1,89 @@
+---
+title: pos2ind
+
+sidebar: function_reference_sidebar
+permalink: EBSD3square.pos2ind.html
+folder: function_reference
+toc: false
+---
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+    -->
+<title>pos2ind</title>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.source" content="script_EBSD3square__pos2ind.m">
+</head>
+<body>
+<font size="2"><a href="https://github.com/mtex-toolbox/mtex/blob/develop/EBSDAnalysis/@EBSD3square/pos2ind.m">
+    edit page</a></font>
+<div>
+<!--introduction-->
+<!--/introduction-->
+<p>convert x,y,z coordinates into indices of EBSD3square</p>
+<h2 id="3">Syntax</h2>
+{% highlight matlab %}
+ind = pos2ind(ebsd,pos)
+ebsd(ind)
+{% endhighlight %}
+
+{% highlight matlab %}
+[i,j,k] = pos2ind(ebsd,x,y,z)
+ebsd(i,j,k)
+{% endhighlight %}
+<h2 id="4">Input</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>ebsd</tt>
+         </td>
+         <td>
+            <tt><a href="EBSD3square.EBSD3square.html">EBSD3square</a></tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>x,y,z</tt>
+         </td>
+         <td>
+            <tt>spatial coordinates</tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>pos</tt>
+         </td>
+         <td>
+            <tt><a href="vector3d.vector3d.html">vector3d</a></tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="5">Output</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>ind</tt>
+         </td>
+         <td>
+            <tt>index to <a href="EBSD3square.EBSD3square.html">EBSD3square</a></tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>i,j,k</tt>
+         </td>
+         <td>
+            <tt>indices to <a href="EBSD3square.EBSD3square.html">EBSD3square</a></tt>
+         </td>
+      </tr>
+   </table>
+</p>
+</div>
+</body>
+</html>

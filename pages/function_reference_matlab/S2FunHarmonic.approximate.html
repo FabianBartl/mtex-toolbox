@@ -1,0 +1,64 @@
+---
+title: approximate
+
+sidebar: function_reference_sidebar
+permalink: S2FunHarmonic.approximate.html
+folder: function_reference
+toc: false
+---
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+    -->
+<title>approximate</title>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.source" content="script_S2FunHarmonic__approximate.m">
+</head>
+<body>
+<font size="2"><a href="https://github.com/mtex-toolbox/mtex/blob/develop/S2Fun/@S2FunHarmonic/approximate.m">
+    edit page</a></font>
+<div>
+<!--introduction-->
+<!--/introduction-->
+<p>computes an approximation from a given spherical function by computing the spherical Fourier coefficients with quadrature</p>
+<h2 id="3">Syntax</h2>
+{% highlight matlab %}
+sF = S2FunHarmonic.approximate(f)
+sF = S2FunHarmonic.approximate(f, 'bandwidth', bandwidth)
+{% endhighlight %}
+<h2 id="4">Input</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>f</tt>
+         </td>
+         <td>
+            <tt>function on the sphere (may be multidimensional)</tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="5">Options</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>bandwidth</tt>
+         </td>
+         <td>
+            <tt>maximum degree of the spherical harmonics used to approximate the function</tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="6">See also</h2>
+<p>
+<a href="S2FunHarmonic.quadrature.html">S2FunHarmonic.quadrature</a> <a href="S2FunHarmonic.html">S2FunHarmonic</a>
+</p>
+</div>
+</body>
+</html>

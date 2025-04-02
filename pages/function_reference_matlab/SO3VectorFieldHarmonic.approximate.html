@@ -1,0 +1,86 @@
+---
+title: approximate
+
+sidebar: function_reference_sidebar
+permalink: SO3VectorFieldHarmonic.approximate.html
+folder: function_reference
+toc: false
+---
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+    -->
+<title>approximate</title>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.source" content="script_SO3VectorFieldHarmonic__approximate.m">
+</head>
+<body>
+<font size="2"><a href="https://github.com/mtex-toolbox/mtex/blob/develop/SO3Fun/@SO3VectorFieldHarmonic/approximate.m">
+    edit page</a></font>
+<div>
+<!--introduction-->
+<!--/introduction-->
+<p>Approximate a vector field on the rotation group (SO(3)) in its harmonic representation from a given vector field.</p>
+<p>We compute this vector field componentwise, i.e. we compute three SO3FunHarmonics individually by quadrature. So, see <a href="SO3VectorFieldHarmonic.quadrature.html"><code class="language-plaintext highlighter-rouge">SO3VectorFieldHarmonic.quadrature</code></a> for further information.</p>
+<h2 id="3">Syntax</h2>
+{% highlight matlab %}
+SO3VF = SO3VectorFieldHarmonic.approximate(f)                 % exact computation by quadrature
+SO3VF = SO3VectorFieldHarmonic.approximate(f,'bandwidth',48)  % exact computation by quadrature
+{% endhighlight %}
+<h2 id="4">Input</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>f</tt>
+         </td>
+         <td>
+            <tt><a href="SO3VectorField.SO3VectorField.html">SO3VectorField</a></tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="5">Output</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>SO3VF</tt>
+         </td>
+         <td>
+            <tt><a href="SO3VectorFieldHarmonic.SO3VectorFieldHarmonic.html">SO3VectorFieldHarmonic</a></tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="6">Options</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>bandwidth</tt>
+         </td>
+         <td>
+            <tt>maximal harmonic degree (Be careful by setting the bandwidth by yourself, since it may yields undersampling)</tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>weights</tt>
+         </td>
+         <td>
+            <tt>corresponding to the nodes (default: Voronoi weights, 'equal': all nodes are weighted similar, numeric array W: specific weights for every node)</tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="7">See also</h2>
+<p>
+<a href="SO3FunHarmonic.approximate.html">SO3FunHarmonic.approximate</a> <a href="SO3VectorFieldHarmonic.html">SO3VectorFieldHarmonic</a>
+</p>
+</div>
+</body>
+</html>

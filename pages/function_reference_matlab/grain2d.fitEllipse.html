@@ -27,7 +27,7 @@ To make changes, update the MATLAB code and republish this document.
 <h2 id="3">Syntax</h2>
 {% highlight matlab %}
 [c,a,b] = fitEllipse(grains);
-plotEllipse(c,a,b,omega,'lineColor','r')
+plotEllipse(c,a,b,'lineColor','r')
 {% endhighlight %}
 <h2 id="4">Input</h2>
 <p>
@@ -85,7 +85,7 @@ plotEllipse(c,a,b,omega,'lineColor','r')
    </table>
 </p>
 <h2 id="7">Example</h2>
-<p>mtexdata csl grains = calcGrains(ebsd('indexed')) grains = smooth(grains,10) plot(ebsd('indexed'),ebsd('indexed').orientations,'micronbar','off') hold on plot(grains.boundary,'lineWidth',2) [c,a,b] = fitEllipse(grains(grains.grainSize&gt;20)); plotEllipse(c,a,b,'lineColor','w','lineWidth',2) hold off</p>
+<p>mtexdata csl grains = calcGrains(ebsd('indexed')) grains = smooth(grains,10) plot(ebsd('indexed'),ebsd('indexed').orientations,'micronbar','off') hold on plot(grains.boundary,'lineWidth',2) [c,a,b] = fitEllipse(grains(grains.numPixel&gt;20)); plotEllipse(c,a,b,'lineColor','w','lineWidth',2) hold off</p>
 </div>
 </body>
 </html>

@@ -41,12 +41,12 @@ y = vector3d.byPolar(sin(3*nodes.theta), nodes.rho+pi/2);
 <p>Now the actual command to get <code class="language-plaintext highlighter-rouge">sVF1</code> of type <code class="language-plaintext highlighter-rouge">S2VectorFieldHarmonic</code>
 </p>
 {% highlight matlab %}
-sVF1 = S2VectorFieldHarmonic.approximation(nodes, y)
+sVF1 = S2VectorFieldHarmonic.interpolate(nodes, y)
 {% endhighlight %}
 
 {% highlight plaintext %}
 sVF1 = S2VectorFieldHarmonic
- bandwidth: 128
+ bandwidth: 224
 {% endhighlight %}
 <p>
 <b>Definition via function handle</b>
@@ -58,7 +58,8 @@ f = @(v) vector3d(v.x, v.y, 0*v.x);
 <p>Now we can call the quadrature command to get <code class="language-plaintext highlighter-rouge">sVF2</code> of type <code class="language-plaintext highlighter-rouge">S2VectorFieldHarmonic</code>
 </p>
 {% highlight matlab %}
-sVF2 = S2VectorFieldHarmonic.quadrature(@(v) f(v))
+sVF2 = S2VectorFieldHarmonic(@(v) f(v))
+% sVF2 = S2VectorFieldHarmonic.quadrature(@(v) f(v))
 {% endhighlight %}
 
 {% highlight plaintext %}

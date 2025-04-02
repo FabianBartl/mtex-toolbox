@@ -35,7 +35,7 @@ SO3F = SO3FunHandle(@(ori) angle(ori) ./ degree, cs)
 {% endhighlight %}
 
 {% highlight plaintext %}
-SO3F = SO3FunHandle (432 → xyz)
+SO3F = SO3FunHandle (432 → y↑→x)
   eval: @(ori)angle(ori)./degree
 {% endhighlight %}
 <p>Many more methods for defining orientation dependent functions are discussed <a href="SO3FunDefinition.html">here</a>.</p>
@@ -46,14 +46,14 @@ SO3F.eval(ori)
 {% endhighlight %}
 
 {% highlight plaintext %}
-ori = orientation (432 → xyz)
+ori = orientation (432 → y↑→x)
  
   Bunge Euler angles in degree
      phi1     Phi    phi2
-  172.213 20.9924 52.3057
+  156.958 161.468 197.878
  
 ans =
-   48.9912
+   44.7566
 {% endhighlight %}
 <h2 id="5">Plotting an orientation Dependent Function</h2>
 <p>Orientation dependent functions are most often visualized by sections according to the third Euler angle \(\varphi_2\).</p>
@@ -96,7 +96,7 @@ value =
    62.7993
    62.7993
  
-ori = orientation (432 → xyz)
+ori = orientation (432 → y↑→x)
   size: 6 x 1
  
   Bunge Euler angles in degree

@@ -60,13 +60,13 @@ C = stiffnessTensor (An0 Albite 2016)
   -0.9  -6.4  -9.4  -7.2   0.6  33.6
 {% endhighlight %}
 <h2 id="2">The effective isotropic stiffness tensor</h2>
-<p>An isotropic Albite material we assume here to consist of randomly oriented grains forming an uniform (isotropic) texture. In this case the Voigt and Reuss avarages provide upper and lower bounds for the elastic properties of the material.</p>
+<p>An isotropic Albite material we assume here to consist of randomly oriented grains forming an uniform (isotropic) texture. In this case the Voigt and Reuss averages provide upper and lower bounds for the elastic properties of the material.</p>
 {% highlight matlab %}
 [C_iso_Voigt,C_iso_Reuss,C_iso_Hill] = mean(C,uniformODF(C.CS))
 {% endhighlight %}
 
 {% highlight plaintext %}
-C_iso_Voigt = stiffnessTensor (xyz)
+C_iso_Voigt = stiffnessTensor (y↑→x)
   density: 2.623            
   unit   : GPa              
   rank   : 4 (3 x 3 x 3 x 3)
@@ -79,7 +79,7 @@ C_iso_Voigt = stiffnessTensor (xyz)
       0      0      0      0  41.43      0
       0      0      0      0      0  41.43
  
-C_iso_Reuss = stiffnessTensor (xyz)
+C_iso_Reuss = stiffnessTensor (y↑→x)
   density: 2.623            
   unit   : GPa              
   rank   : 4 (3 x 3 x 3 x 3)
@@ -92,7 +92,7 @@ C_iso_Reuss = stiffnessTensor (xyz)
      0     0     0     0 29.84     0
      0     0     0     0     0 29.84
  
-C_iso_Hill = stiffnessTensor (xyz)
+C_iso_Hill = stiffnessTensor (y↑→x)
   density: 2.623            
   unit   : GPa              
   rank   : 4 (3 x 3 x 3 x 3)
@@ -117,16 +117,16 @@ nu = C_iso_Voigt.PoissonRatio
 
 {% highlight plaintext %}
 G =
-   41.4335
+   41.4333
 K =
-   63.0892
+   63.0889
 E =
-  101.9764
+  101.9759
 nu =
     0.2306
 {% endhighlight %}
 <h2 id="4">From the elastic moduli to the elastic tensors</h2>
-<p>Furthermore, any two of them entirely describe the linear elastic behaviour of the material. In particular, we may recover the isotropic stiffness tensor from the bulk and shear moduli alone:</p>
+<p>Furthermore, any two of them entirely describe the linear elastic behavior of the material. In particular, we may recover the isotropic stiffness tensor from the bulk and shear moduli alone:</p>
 {% highlight matlab %}
 % the matrix entries
 C11 = K+(4/3)*G ; C12=C11-2*G; C44=(C11-C12)/2;
@@ -181,13 +181,13 @@ ans = stiffnessTensor (An0 Albite 2016)
       0      0      0      0      0  41.43
 {% endhighlight %}
 <h2 id="6">Formulas between the elastic moduli</h2>
-<p>As a consequence, Youngs modulus and the Poisson ratio can be computed directly from the bulk and shear modulus (and vice versa)</p>
+<p>As a consequence, Young's modulus and the Poisson ratio can be computed directly from the bulk and shear modulus (and vice versa)</p>
 {% highlight matlab %}
 % formulae for the Poisson ratio
 (E/G-2)/2
 (3*K-E)/(6*K)
 
-% formulae for the Youngs modulus
+% formulae for the Young's modulus
 2*G*(1+nu)
 3*K*(1-2*nu)
 {% endhighlight %}
@@ -198,15 +198,15 @@ ans =
 ans =
     0.2306
 ans =
-  101.9764
+  101.9759
 ans =
-  101.9764
+  101.9759
 {% endhighlight %}
 <h2 id="7">Lame constants</h2>
-<p>The second way to represent the elastic behaviour of an isotropic medium is by means of the Lame constants</p>
+<p>The second way to represent the elastic behavior of an isotropic medium is by means of the Lame constants</p>
 {% highlight matlab %}
 lambda = nu/(1-2*nu) /(1+nu) * E;
-mu =G;
+mu = G;
 {% endhighlight %}
 <p>In terms of the Lame constants the stiffness tensor is given by</p>
 {% highlight matlab %}
@@ -234,12 +234,12 @@ sigma = C_iso_Voigt : eps
 {% endhighlight %}
 
 {% highlight plaintext %}
-sigma = stressTensor (xyz)
+sigma = stressTensor (y↑→x)
   rank: 2 (3 x 3)
  
- 168.29  59.62  38.18
-  59.62 121.57  41.43
-  38.18  41.43 168.56
+ 77.13 19.11 31.25
+ 19.11 75.83 39.35
+ 31.25 39.35 65.83
 {% endhighlight %}
 <p>in terms of the Lame constants by</p>
 {% highlight matlab %}
@@ -251,14 +251,14 @@ sigma = stressTensor (An0 Albite 2016)
   type: Lagrange 
   rank: 2 (3 x 3)
  
- 168.29  59.62  38.18
-  59.62 121.57  41.43
-  38.18  41.43 168.56
+ 77.13 19.11 31.25
+ 19.11 75.83 39.35
+ 31.25 39.35 65.83
 {% endhighlight %}
 <h2 id="11">Hashin Shtrikman Bounds</h2>
 <p>While the Voigt and Reuss bounds are tight without additional assumptions, the extreme cases require a very specific layered microstructure. If one additionally assumes that the material is quasihomogeneous, i.e., it is constant elastic properties within each subregion that is significantly larger then the grain size, then the Voigt and Reuss bounds are to wide. More narrow bounds for this settings have been established by Hashin and Shtrikman in 1962.</p>
 <p>The following deviation follows the paper by J.M. Brown (2015) <i>Determination of Hashin-Shtrikman bounds on the isotropic effective elastic moduli of polycrystals of any symmetry</i>, Computers &amp; Geosciences, 80 (2015) 95-99.</p>
-<p>The upper and lower Hashin-Shtrikman bounds for the bulk and shear moduli are found as a solution of an optimzation problem. Lets first set up the search domain</p>
+<p>The upper and lower Hashin-Shtrikman bounds for the bulk and shear moduli are found as a solution of an optimization problem. Lets first set up the search domain</p>
 {% highlight matlab %}
 % define a 2 dimensional domain of bulk and shear moduli
 KMin = 1; KMax = 150; % minimum and maximum bulk moduli
@@ -267,11 +267,9 @@ Ko = linspace(KMin,KMax,300);
 Go = linspace(GMin,GMax,300);
 [G0Mesh,K0Mesh] = meshgrid(Go,Ko);
 {% endhighlight %}
-<p>Next the initial stiffness tensor is updated such that the residual stiffness tensor <code class="language-plaintext highlighter-rouge">R</code> remains either possitve or negative definite.</p>
+<p>Next the initial stiffness tensor is updated such that the residual stiffness tensor <code class="language-plaintext highlighter-rouge">R</code> remains either positive or negative definite.</p>
 {% highlight matlab %}
-tic
 [khs, ghs, def] = HashinShtrikmanModulus(C,K0Mesh,G0Mesh);
-toc
 
 subplot(1,2,1)
 imagesc(Go,Ko,khs)
@@ -303,8 +301,7 @@ axis equal tight
 
 {% highlight plaintext %}
 Warning: Tensor is not positive definite 
-Warning: Tensor is not positive definite 
-Elapsed time is 2.644270 seconds.
+Warning: Tensor is not positive definite
 {% endhighlight %}
 <center>
 {% include inline_image.html file="IsotropicTheory_01.png" %}
@@ -362,11 +359,11 @@ disp(' ')
 {% highlight plaintext %}
 bulk modulus
   Voigt     +HS    Hill     -HS    Reus
-63.0892  60.326 58.5696  57.107   54.05
+63.0889  60.326 58.5696  57.107 54.0503
  
 shear modulus
   Voigt     +HS    Hill     -HS    Reus
-41.4335 36.7537 35.6344 32.8495 29.8353
+41.4333 36.7537 35.6344 32.8495 29.8355
 {% endhighlight %}
 <p>Note, that upper and lower bounds for all other elastic moduli can be computed from these upper and lower bounds of the bulk and shear modulus.</p>
 </div>

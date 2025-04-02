@@ -1,0 +1,101 @@
+---
+title: mlsq
+
+sidebar: function_reference_sidebar
+permalink: mlsq.html
+folder: function_reference
+toc: false
+---
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+    -->
+<title>mlsq</title>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.source" content="script_mlsq.m">
+</head>
+<body>
+<font size="2"><a href="https://github.com/mtex-toolbox/mtex/blob/develop/tools/optimization_tools/mlsq.m">
+    edit page</a></font>
+<div>
+<!--introduction-->
+<p>modified least squares, Psi*c = I, sum(c) = const., c&gt;0</p>
+<!--/introduction-->
+<h2 id="2">Syntax</h2>
+{% highlight matlab %}
+c = mlsq(Psi,I)
+c = mlsq(Psi,I,c0)
+[c,k] = mlsq(Psi,I,c0,itermax,tol)
+{% endhighlight %}
+<h2 id="3">Input</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>Psi</tt>
+         </td>
+         <td>
+            <tt>system matrix (N x M), can be complex</tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>I</tt>
+         </td>
+         <td>
+            <tt>intensities (N x 1), can be complex</tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>c0</tt>
+         </td>
+         <td>
+            <tt>initial coefficients (M x 1), real valued</tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>itermax</tt>
+         </td>
+         <td>
+            <tt>maximum number of iterations</tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>tol</tt>
+         </td>
+         <td>
+            <tt>abort if change smaller than tolerance</tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="4">Output</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>c</tt>
+         </td>
+         <td>
+            <tt>coefficients (Mx1), real valued</tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>k</tt>
+         </td>
+         <td>
+            <tt>number of iterations</tt>
+         </td>
+      </tr>
+   </table>
+</p>
+</div>
+</body>
+</html>

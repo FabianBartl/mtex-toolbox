@@ -78,9 +78,9 @@ grains(ind).diameter
 
 {% highlight plaintext %}
 ans =
-   1.1454e+03
+   6.9276e+03
 {% endhighlight %}
-<p>The diameter is a special case of the <a href="grain2d.caliper.html"><code class="language-plaintext highlighter-rouge">caliper</code></a> or Feret diameter of a grain. By definition the caliper is the length of a grain when projected onto a line. We may trace the caliper with respect to projection direction</p>
+<p>The diameter is a special case of the <a href="grain2d.caliper.html"><code class="language-plaintext highlighter-rouge">caliper</code></a> or Ferret diameter of a grain. By definition the caliper is the length of a grain when projected onto a line. We may trace the caliper with respect to projection direction</p>
 {% highlight matlab %}
 close all
 omega = linspace(0,180);
@@ -109,9 +109,9 @@ hold off
 
 {% highlight plaintext %}
 ans =
-   1.1454e+03
+   6.9276e+03
 ans =
-  752.2884
+   1.6308e+03
 {% endhighlight %}
 <center>
 {% include inline_image.html file="ProjectionBasedParameters_03.png" %}
@@ -150,7 +150,7 @@ legend('Location','east')
 {% include inline_image.html file="ProjectionBasedParameters_05.png" %}
 </center>
 <h2 id="7">PAROR and SURFOR</h2>
-<p>Another way of quantifying shape farbics is by making use of the cumulative projection function of the grains or the grain boundary segments. These methods are heavily inspired by <a href="https://en.wikipedia.org/wiki/Flatland">Edwin A. Abbotts 'Flatland - A romance of many dimensions' (1884)</a> and based on Panozzo, R., 1983, "Two-dimensional analysis of shape fabric using projections of digitized lines in a plane". Tectonophysics 95, 279-294. and Panozzo, R., 1984, "Two-dimensional strain from the orientation of lines in a plane." J. Struct. Geol. 6, 215-221. implemented in Mtex as <a href="grain2d.paror.html"><code class="language-plaintext highlighter-rouge">grains.paror</code></a> and <a href="grainBoundary.surfor.html"><code class="language-plaintext highlighter-rouge">grainBoudnary.surfor</code></a>
+<p>Another way of quantifying shape fabrics is by making use of the cumulative projection function of the grains or the grain boundary segments. These methods are heavily inspired by <a href="https://en.wikipedia.org/wiki/Flatland">Edwin A. Abbotts 'Flatland - A romance of many dimensions' (1884)</a> and based on Panozzo, R., 1983, "Two-dimensional analysis of shape fabric using projections of digitized lines in a plane". Tectonophysics 95, 279-294. and Panozzo, R., 1984, "Two-dimensional strain from the orientation of lines in a plane." J. Struct. Geol. 6, 215-221. implemented in MTEX as <a href="grain2d.paror.html"><code class="language-plaintext highlighter-rouge">grains.paror</code></a> and <a href="grainBoundary.surfor.html"><code class="language-plaintext highlighter-rouge">grainBoudnary.surfor</code></a>
 </p>
 <p>As mentioned above the function <a href="grain2d.caliper.html"><code class="language-plaintext highlighter-rouge">caliper</code></a> can be called with a list of angles and returns the projection length of all grains with respect to all angles.</p>
 {% highlight matlab %}
@@ -188,11 +188,18 @@ close all
 cumplF = paror(grains('fo'),omega);
 cumplE = paror(grains('en'),omega);
 
-subplot(1,2,1)
-polarplot(omega,cumplF,'LineWidth',3,'color','k')
+plOpt = {'LineWidth',3,'color','k'};
 
-subplot(1,2,2)
-polarplot(omega,cumplE,'LineWidth',3,'color','k')
+subplot(2,2,1)
+plot(omega/degree,cumplF,plOpt{:}); xlim([0 180]);
+title('paror Forsterite')
+subplot(2,2,2)
+polarplot(omega,cumplF,plOpt{:})
+subplot(2,2,3)
+plot(omega/degree,cumplE,plOpt{:}); xlim([0 180]);
+title('paror Enstatite')
+subplot(2,2,4)
+polarplot(omega,cumplE,plOpt{:})
 {% endhighlight %}
 <center>
 {% include inline_image.html file="ProjectionBasedParameters_07.png" %}
@@ -204,36 +211,50 @@ min(cumplF), min(cumplE)
 
 {% highlight plaintext %}
 ans =
-    0.7172
+    0.7102
 ans =
-    0.7361
+    0.7203
 {% endhighlight %}
 <p>The position of the maxima and minima of the projection function derived from <a href="grain2d.paror.html"><code class="language-plaintext highlighter-rouge">paror</code></a> can be interpreted in the following way: the maximum position represents the preferred axis parallel to the longest projection and the normal the minimum position represents the preferred axis related to the normal to the shortest projection function.</p>
 {% highlight matlab %}
+% using S1Fun for the Forsterite
+sF_Fo = S1FunHarmonic.interpolate(omega,cumplF);
+[~, maxposfo] = max(sF_Fo);
+[~, minposfo] = min(sF_Fo);
+
+[mod(maxposfo,pi) mod(minposfo-pi/2,pi)] /degree
+
+% for the Enstatite
+sF_Fo = S1FunHarmonic.interpolate(omega,cumplE);
+[~, maxposfo] = max(sF_Fo);
+[~, minposfo] = min(sF_Fo);
+
+[mod(maxposfo,pi) mod(minposfo-pi/2,pi)]/degree
+
+
+% or finding maxima and minima
 % for the Forsterite
 [~, id_max] = max(cumplF);
 [~, id_min] = min(cumplF);
 
-mod(omega(id_max)./degree,180)
-mod(omega(id_min)./degree-90,180)
+[mod(omega(id_max)./degree,180) mod(omega(id_min)./degree-90,180)]
 
 % for the Enstatite
 [~, id_max] = max(cumplE);
 [~, id_min] = min(cumplE);
 
-mod(omega(id_max)./degree,180)
-mod(omega(id_min)./degree-90,180)
+[mod(omega(id_max)./degree,180) mod(omega(id_min)./degree-90,180)]
 {% endhighlight %}
 
 {% highlight plaintext %}
 ans =
-    70
+   71.1000   74.4250
 ans =
-    75
+   87.8250   88.5250
 ans =
-   89.0000
+   71.0000   74.0000
 ans =
-    90
+   87.0000   88.0000
 {% endhighlight %}
 <p>The smaller the difference between these values, the closer the fabric is to an orthorhombic symmetry.</p>
 <p>Similarly to using the entire particle (the convex hull in case of the projection functions), we can use a distribution of lines <a href="grainBoundary.surfor.html"><code class="language-plaintext highlighter-rouge">grainBoudnary.surfor</code></a>. This can be useful for the quantification of the grain boundary anisotropy or in general might be needed if we look at boundaries which do not form closed outlines, e.g. a list of subgrain or twin boundaries or the contact between certain phases.</p>
@@ -259,17 +280,15 @@ legend('Location','southoutside','Orientation','horizontal')
 <p>We can see that Forsterite-Forsterite boundaries form a fabric slightly more inclined with respect to the other phase boundaries and that the phase boundaries between the two pyroxenes (Enstatite and Diopside) show the lowest anisotropy.</p>
 <h2 id="13">Characteristic Shape</h2>
 <p>The characteristic shape results from the cumulative sum of all grain boundary segments ordered by the angle of the segment direction. It can be regarded as to represent the average grain shape, however without the need to use closed areas such as it would be required when working with grains.</p>
-<p>Here we can compare the shape defined by Forterite-Forsterite, Enstatite-Enstatite and Forsterite-Enstatite boundaries</p>
+<p>Here we can compare the shape defined by Forsterite-Forsterite, Enstatite-Enstatite and Forsterite-Enstatite boundaries</p>
 {% highlight matlab %}
 plotopts = {'normalize','linewidth',2, 'plain'};
 
-shapeF = characteristicShape(grains.boundary('Fo','Fo'))
-plot(shapeF,plotopts{:},'DisplayName','Fo-Fo')
-
+shapeF = characteristicShape(grains.boundary('f','f'))
+plot(shapeF,plotopts{:})
 hold on
 shapeE = characteristicShape(grains.boundary('En','En'));
 plot(shapeE,plotopts{:},'DisplayName','En-En')
-
 hold on
 shapeEF = characteristicShape(grains.boundary('En','Fo'));
 plot(shapeEF,plotopts{:},'DisplayName','En-Fo')
@@ -286,7 +305,7 @@ shapeF = shape2d
 <center>
 {% include inline_image.html file="ProjectionBasedParameters_09.png" %}
 </center>
-<p>The output of the command <a href="grainBoundary.characteristicShape.html"><code class="language-plaintext highlighter-rouge">characteristicShape</code></a> is a <a href="shape2d.shape2d.html"><code class="language-plaintext highlighter-rouge">shape2d</code></a> object which behaves very similar to a <a href="grain2d.grain2d.html"><code class="language-plaintext highlighter-rouge">grain2d</code></a> object. Hence it is easy to derive things such as a long axis or e.g. the angle between the longest and the shortest caliper which can be regarded as a measure of asymmetry.</p>
+<p>The output of <code class="language-plaintext highlighter-rouge">characteristicShape</code> is a <a href="shape2d.shape2d.html">shape2d</a> object which behaves very similar to a <a href="grain2d.grain2d.html">grain2d</a> object, hence it is easy to derive things such as a long axis or e.g. the angle between the longest and the shortest caliper which can be regarded as a measure of asymmetry.</p>
 {% highlight matlab %}
 angle(shapeF.caliper('longest'),shapeF.caliper('shortest')) / degree
 angle(shapeE.caliper('longest'),shapeE.caliper('shortest')) / degree
@@ -295,11 +314,11 @@ angle(shapeEF.caliper('longest'),shapeF.caliper('shortest')) / degree
 
 {% highlight plaintext %}
 ans =
-   79.4281
+   78.7774
 ans =
-   88.1989
+   86.8311
 ans =
-   77.6589
+   79.7408
 {% endhighlight %}
 </div>
 </body>

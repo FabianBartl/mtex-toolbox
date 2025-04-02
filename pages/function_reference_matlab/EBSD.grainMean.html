@@ -38,7 +38,7 @@ plot(grains,meanPropG)
 
 {% highlight matlab %}
 % compute average grain property for each EBSD pixel
-meanPropE = grainMean(ebsd, ebsd.ci, grains);
+meanPropE = grainMean(ebsd, ebsd.ci);
 plot(ebsd,meanPropE)
 {% endhighlight %}
 

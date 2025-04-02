@@ -48,7 +48,7 @@ sS = slipSystem (432)
   -1    1    1    2    1    1    1
   -1    1    1    3    2    1    1
  
-epsilon = strainTensor (xyz)
+epsilon = strainTensor (y↑→x)
   type: Lagrange 
   rank: 2 (3 x 3)
  
@@ -56,7 +56,7 @@ epsilon = strainTensor (xyz)
   0  0  0
   0  0 -1
  
-W = SO3VectorFieldHarmonic (432 → xyz)
+W = SO3VectorFieldHarmonic (432 → y↑→x)
   bandwidth: 32
   tangent space: rightSpinTensor
 {% endhighlight %}
@@ -82,9 +82,9 @@ WCopper = spinTensor (432)
   rank: 2 (3 x 3)
  
  *10^-2
-       0  -4.211  20.763
-   4.211       0  -16.83
- -20.763   16.83       0
+      0      0  32.15
+      0      0  32.15
+ -32.15 -32.15      0
 {% endhighlight %}
 <p>
 <b>The Norm of a Vector Field</b>
@@ -107,11 +107,11 @@ annotate(oriMax)
 {% endhighlight %}
 
 {% highlight plaintext %}
-oriMax = orientation (432 → xyz)
+oriMax = orientation (432 → y↑→x)
  
   Bunge Euler angles in degree
-    phi1     Phi    phi2
-  342.24 40.3371 43.6907
+     phi1     Phi    phi2
+  268.696 45.4283 63.3496
 {% endhighlight %}
 <center>
 {% include inline_image.html file="SO3FunVectorField_02.png" %}
@@ -142,7 +142,7 @@ hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-flux = SO3FunHarmonic (432 → xyz)
+flux = SO3FunHarmonic (432 → y↑→x)
   bandwidth: 32
   weight: 0
 {% endhighlight %}
@@ -160,7 +160,7 @@ plot(c,sP,'resolution',7.5*degree,'layout',[2 2],'color','black')
 {% endhighlight %}
 
 {% highlight plaintext %}
-c = SO3VectorFieldHarmonic (432 → xyz)
+c = SO3VectorFieldHarmonic (432 → y↑→x)
   bandwidth: 32
   tangent space: leftVector
 {% endhighlight %}
@@ -174,7 +174,7 @@ odf = SO3Fun.dubna
 {% endhighlight %}
 
 {% highlight plaintext %}
-odf = SO3FunRBF (Quartz → xyz)
+odf = SO3FunRBF (Quartz → y↑→x)
  
   multimodal components
   kernel: de la Vallee Poussin, halfwidth 5°
@@ -188,7 +188,7 @@ g = odf.grad
 {% endhighlight %}
 
 {% highlight plaintext %}
-g = SO3VectorFieldHarmonic (Quartz → xyz)
+g = SO3VectorFieldHarmonic (Quartz → y↑→x)
   bandwidth: 48
   tangent space: leftVector
 {% endhighlight %}
@@ -229,7 +229,7 @@ plot(odf2,'sigma')
 {% endhighlight %}
 
 {% highlight plaintext %}
-odf2 = SO3FunHarmonic (Quartz → xyz)
+odf2 = SO3FunHarmonic (Quartz → y↑→x)
   bandwidth: 48
   weight: 0
 {% endhighlight %}
@@ -327,19 +327,11 @@ y = vector3d.byPolar(sin(3*nodes.angle), nodes.phi2+pi/2);
 <p>Now the actual command to get <code class="language-plaintext highlighter-rouge">SO3VF1</code> of type <code class="language-plaintext highlighter-rouge">SO3VectorFieldHarmonic</code>
 </p>
 {% highlight matlab %}
-SO3VF1 = SO3VectorFieldHarmonic.approximation(nodes, y,'bandwidth',16)
+SO3VF1 = SO3VectorFieldHarmonic.approximate(nodes, y,'bandwidth',16)
 {% endhighlight %}
 
 {% highlight plaintext %}
-Warning: The given vector3d values v are assumed to describe elements
-w.r.t. the left side tangent space. If you want them to be right
-sided use SO3TangentVector(v,SO3TangentSpace.rightVector) instead. 
-Warning: The oversampling factor in the approximation process is
-0.3071. This could lead to a bad approximation. You may should use
-the option 'regularization' in the option list of the approximation
-method. 
- 
-SO3VF1 = SO3VectorFieldHarmonic (xyz → xyz)
+SO3VF1 = SO3VectorFieldHarmonic (y↑→x → y↑→x)
   bandwidth: 16
   tangent space: leftVector
 {% endhighlight %}
@@ -354,7 +346,7 @@ SO3VF2 = SO3VectorFieldHarmonic.quadrature(@(v) f(v))
 {% endhighlight %}
 
 {% highlight plaintext %}
-SO3VF2 = SO3VectorFieldHarmonic (xyz → xyz)
+SO3VF2 = SO3VectorFieldHarmonic (y↑→x → y↑→x)
   bandwidth: 64
   tangent space: leftVector
 {% endhighlight %}
@@ -368,14 +360,14 @@ SO3VF3 = SO3VectorFieldHarmonic(SO3F)
 {% endhighlight %}
 
 {% highlight plaintext %}
-SO3F = SO3FunHarmonic (xyz → xyz)
+SO3F = SO3FunHarmonic (y↑→x → y↑→x)
   isReal: false
   size: 3 x 1
   bandwidth: 9
-  weight: 0.77
+  weights: [0.44 0.62 0.69]
  
  
-SO3VF3 = SO3VectorFieldHarmonic (xyz → xyz)
+SO3VF3 = SO3VectorFieldHarmonic (y↑→x → y↑→x)
   isReal: false
   bandwidth: 9
   tangent space: leftVector

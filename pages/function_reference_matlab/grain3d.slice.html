@@ -23,7 +23,7 @@ To make changes, update the MATLAB code and republish this document.
 <div>
 <!--introduction-->
 <!--/introduction-->
-<p>grain3d.slice is a method to intersect 3D grain data by a plane to get grain2d slices</p>
+<p>slice 3d-grains to obtain 2d-grains</p>
 <h2 id="3">Syntax</h2>
 {% highlight matlab %}
 N = vector3d(1,1,1)             % plane normal
@@ -32,20 +32,15 @@ grain2d = grains.slice(N,P0)
 {% endhighlight %}
 
 {% highlight matlab %}
-V = vector3d([0 1 0],[0 1 1],[0 1 0])
-grain2d = grains.slice(V)       % set of points
-{% endhighlight %}
-
-{% highlight matlab %}
-plane = createPlane(P0,N)       % note different sequence of inputs!
-grain2d = grains.slice(plane)   % plane in matGeom format
+plane = plane3d.fit(v)
+grain2d = grains.slice(plane)
 {% endhighlight %}
 <h2 id="4">Input</h2>
 <p>
    <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
       <tr>
          <td width="100px">
-            <tt>grains</tt>
+            <tt>grains3</tt>
          </td>
          <td>
             <tt><a href="grain3d.grain3d.html">grain3d</a></tt>
@@ -56,7 +51,7 @@ grain2d = grains.slice(plane)   % plane in matGeom format
             <tt>plane</tt>
          </td>
          <td>
-            <tt>plane in matGeom format</tt>
+            <tt><a href="plane3d.plane3d.html">plane3d</a></tt>
          </td>
       </tr>
    </table>
@@ -66,7 +61,7 @@ grain2d = grains.slice(plane)   % plane in matGeom format
    <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
       <tr>
          <td width="100px">
-            <tt>grain2d</tt>
+            <tt>grains2</tt>
          </td>
          <td>
             <tt><a href="grain2d.grain2d.html">grain2d</a></tt>

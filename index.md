@@ -34,26 +34,27 @@ of material scientists, geologists and mathematicians.
             </div>
             <div class="panel-body">
                 <ul class="no_bullet">
+				<li>
+                        03/25 &minus;
+							{% include reference.html link="https://github.com/mtex-toolbox/mtex/releases/download/mtex-6.2.beta.3/mtex-6.2.beta.3.zip" content="MTEX 6.1.beta3" download=true %}
+                        released:
+                        {% include reference.html link="changelog#1" content="Release Notes" %}
+                    </li>
 					<li>
 						03/25 &minus;
 						{% include reference.html link="workshop25?" content="MTEX Workshop 25" %}:
+						{% include reference.html link="https://github.com/mtex-toolbox/mtex/discussions/2249" content="Announcement" %}
                     </li>
    					<li>
-                        04/24 &minus;
-							{% include reference.html link="https://github.com/mtex-toolbox/mtex/releases/download/mtex-5.11.2/mtex-5.11.2.zip" content="MTEX 5.11.2" download=true %}
-                        released:
-                        {% include reference.html link="changelog#2" content="Release Notes" %}
-                    </li>
-				    <li>
-                        03/24 &minus;
-							{% include reference.html link="https://github.com/mtex-toolbox/mtex/releases/download/mtex-6.0.beta3/mtex-6.0.beta3.zip" content="MTEX 6.0.beta3" download=true %}
+                        11/24 &minus;
+							{% include reference.html link="https://github.com/mtex-toolbox/mtex/releases/download/mtex-6.0.0/mtex-6.0.0.zip" content="MTEX 6.0.0" download=true %}
                         released:
                         {% include reference.html link="changelog#1" content="Release Notes" %}
                     </li>
 					<!--<li>
 						03/24 &minus;
 						{% include reference.html link="workshop24?" content="MTEX Workshop 24" %}:
-                        {% include reference.html link="https://github.com/mtex-toolbox/mtex/discussions/1948" content="Announcement" %}
+                        {% include reference.html link="https://github.com/mtex-toolbox/mtex/discussions/2249" content="Announcement" %}
                     </li>-->
                     <li>
                         03/22 &minus; addon 
@@ -158,48 +159,56 @@ of material scientists, geologists and mathematicians.
     <div class="col-md-4">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-                <img src="images/thumbnails/GrainTutorial.jpg">
+				<a href="https://mtex-toolbox.github.io/GrainTutorial.html">
+					<img src="images/thumbnails/GrainTutorial.jpg">
+				</a>	
             </div>
             <div class="panel-body">
-                <h4>Grain Tutorial</h4>
+                <h4>{% include reference.html link="GrainTutorial.html" content='Grain Tutorial'%}</h4>
                 <p>A quick guide through the grain reconstruction capabilities.</p>
-                {% include reference.html link="GrainTutorial.html" content="Learn More" class="btn btn-primary" %}
+                <!--{% include reference.html link="GrainTutorial.html" content="Learn More" class="btn btn-primary" %}-->
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-                <img src="images/thumbnails/EBSDDenoising.jpg">
+				<a href="https://mtex-toolbox.github.io/EBSDDenoising.html">
+					<img src="images/thumbnails/EBSDDenoising.jpg">
+				</a>
             </div>
             <div class="panel-body">
-                <h4>Denoising Orientation Maps</h4>
+                <h4>{% include reference.html link="EBSDDenoising.html" content='Denoising Orientation Maps'%}</h4>
                 <p>A quick comparison of different denoising methods for EBSD data.</p>
-                {% include reference.html link="EBSDDenoising.html" content="Learn More" class="btn btn-primary" %}
+                <!--{% include reference.html link="EBSDDenoising.html" content="Learn More" class="btn btn-primary" %}-->
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-                <img src="images/thumbnails/MaParentGrainReconstruction.jpg">
+				<a href="https://mtex-toolbox.github.io/MaParentGrainReconstruction.html">
+					<img src="images/thumbnails/MaParentGrainReconstruction.jpg">
+				</a>
             </div>
             <div class="panel-body">
-                <h4>Parent Grain Reconstruction</h4>
+                <h4>{% include reference.html link="MaParentGrainReconstruction.html" content='Parent Grain Reconstruction'%}</h4>
                 <p>A workflow for the reconstruction of parent austenite grains.</p>
-                {% include reference.html link="MaParentGrainReconstruction.html" content="Learn More" class="btn btn-primary" %}
+                <!--{% include reference.html link="MaParentGrainReconstruction.html" content="Learn More" class="btn btn-primary" %}-->
             </div>
         </div>
     </div>
 	<div class="col-md-4">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-                <img src="images/thumbnails/Grains3D.png">
+				<a href="https://mtex-toolbox.github.io/Grains3D.html">
+					<img src="images/thumbnails/Grains3D.png">
+				</a>
             </div>
             <div class="panel-body">
-                <h4>3D Grain Analysis</h4>
+                <h4>{% include reference.html link="Grains3D.html" content='3D Grain Analysis'%}</h4>
                 <p>A quick guide how to import and analyze 3d grain data.</p>
-                {% include reference.html link="Grains3D.html" content="Learn More" class="btn btn-primary" %}
+                <!--{% include reference.html link="Grains3D.html" content="Learn More" class="btn btn-primary" %}-->
             </div>
         </div>
     </div>
@@ -229,10 +238,23 @@ of material scientists, geologists and mathematicians.
     <div class="col-md-4">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-                <img src="images/thumbnails/MTEX-GUI_screenshot_centered.png">
+				<a href="https://github.com/Tijmenvermeij/SSLIP?tab=readme-ov-file">
+                  <img src="images/thumbnails/SSLIP.gif">
+				</a>
             </div>
-            <div class="panel-body">
-                <h4>MTEX GUI</h4>
+            <div class="panel-body">			
+				<!--<h4>
+					{% include reference.html
+					link="https://www.researchgate.net/publication/359504978_MTEX_GUI_3pt5_a_graphical_interface_for_MTEX_texture_analysis_on_MATLAB" 
+					content="MTEX GUI" %}					
+				</h4>-->
+				<h4>
+					{% include reference.html
+					link="https://github.com/Tijmenvermeij/SSLIP?tab=readme-ov-file" 
+					content="SSLIP" %}					
+				</h4>
+				<p>Slip System based Identification of Local Plasticity</p>
+				<!--
                 <p>
                     <i class="fa fa-user"></i>
                     {% include reference.html link="https://www.researchgate.net/profile/Jessica_Hiscocks" content="Jessica Hiscocks" %}
@@ -241,17 +263,21 @@ of material scientists, geologists and mathematicians.
                     <i class="fa fa-home"></i>
                     {% include reference.html link="https://www.researchgate.net/publication/341722714_MTEX_GUI_3pt4-_An_updated_graphical_interface_for_MTEX" content="ResearchGate: An updated graphical interface for MTEX" %}
                 </p>
+				-->
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-                <img src="images/thumbnails/MTEX2Gmsh_logo_centered.png">
+				<a href="https://github.com/DorianDepriester/MTEX2Gmsh">
+					<img src="images/thumbnails/MTEX2Gmsh_logo_centered.png">
+				</a>
             </div>
             <div class="panel-body">
-                <h4>MTEX2Gmsh</h4>
-                <p>
+                <h4>{% include reference.html link="https://github.com/DorianDepriester/MTEX2Gmsh" content="MTEX2Gmsh" %}</h4>
+				<p>EBSD Meshing Toolbox</p>
+<!--                <p>
                     <i class="fa fa-user"></i>
                     {% include reference.html link="https://www.researchgate.net/profile/Dorian_Depriester" content="Dorian Depriester" %}
                 </p>
@@ -259,25 +285,33 @@ of material scientists, geologists and mathematicians.
                     <i class="fa fa-home"></i>
                     {% include reference.html link="https://github.com/DorianDepriester/MTEX2Gmsh" content="GitHub: DorianDepriester/MTEX2Gmsh" %}
                 </p>
+				-->
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-                <img src="images/thumbnails/phaseSegmenter_screenshot_centered.png">
+				<a href="https://www.github.com/frankNiessen/phaseSegmenter">
+					<img src="images/thumbnails/phaseSegmenter_screenshot_centered.png">
+				</a>
             </div>
             <div class="panel-body">
-                <h4>phaseSegmenter</h4>
-                <p>
+				<h4>
+				{% include reference.html link="https://www.github.com/frankNiessen/phaseSegmenter" content="phaseSegmenter" %}
+				</h4>
+				<p>
+				toolbox for segmenting of phases
+				</p>
+                <!--<p>
                     <i class="fa fa-user"></i>
-                    {% include reference.html link="https://www.researchgate.net/profile/Azdiar_Gazder" content="Azdiar A. Gazder" %}
-                    , {% include reference.html link="https://wwws.researchgate.net/profile/Frank_Niessen4" content="Frank Niessen" %}
+                    {% include reference.html link="https://www.researchgate.net/profile/Azdiar_Gazder" content="A. Gazder" %}
+                    , {% include reference.html link="https://wwws.researchgate.net/profile/Frank_Niessen4" content="F. Niessen" %}
                 </p>
                 <p>
                     <i class="fa fa-home"></i>
                     {% include reference.html link="https://www.github.com/frankNiessen/phaseSegmenter" content="GitHub: frankNiessen/phaseSegmenter" %}
-                </p>
+                </p>-->
             </div>
         </div>
     </div>
@@ -285,13 +319,18 @@ of material scientists, geologists and mathematicians.
     <div class="col-md-4">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-                <img src="images/thumbnails/stabix_screenshot_centered.gif">
+				<a href="https://stabix.readthedocs.io/en/latest/index.html">
+					<img src="images/thumbnails/stabix_screenshot_centered.gif">
+				</a>					
             </div>
             <div class="panel-body">
-                <h4>Stabix</h4>
-                <p>
-                    Slip transfer analysis toolbox
+				<h4>
+				{% include reference.html link="https://stabix.readthedocs.io/en/latest/index.html" content="Stabix" %}
+				</h4>
+				<p>
+                    slip transfer analysis toolbox
                 </p>
+				<!--
                 <p>
                     <i class="fa fa-user"></i>
                     {% include reference.html link="https://www.researchgate.net/profile/David_Mercier3" content="David Mercier" %}
@@ -300,6 +339,7 @@ of material scientists, geologists and mathematicians.
                     <i class="fa fa-home"></i>
                     {% include reference.html link="https://stabix.readthedocs.io/en/latest/index.html" content="Read the Docs: Stabix" %}
                 </p>
+				-->
             </div>
         </div>
     </div>

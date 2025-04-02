@@ -38,19 +38,19 @@ scatter(nodes, S.values, 'upper');
 </center>
 <p>Now, we want to find a function which coincides with the given function values in the nodes reasonably well.</p>
 <h2 id="4">Interpolation</h2>
-<p>The idea of the first approach is fairly simple. We create a function which has <b>exactly</b> the value of the given data in the nodes. But we still have to decide what happens inbetween these nodes. For that, we linearly interpolate between them, similarly as Matlat plots a one-dimensional function</p>
+<p>The idea of the first approach is fairly simple. We create a function which has <b>exactly</b> the value of the given data in the nodes. But we still have to decide what happens inbetween these nodes. For that, we linearly interpolate between them, similarly as Matlab plots a one-dimensional function</p>
 {% highlight matlab %}
 close all
-plot(rand(10,1), '.-','linewidth',2)
+plot(rand(10,1), '-s','linewidth',2)
 {% endhighlight %}
 <center>
 {% include inline_image.html file="S2FunApproximationInterpolation_02.png" %}
 </center>
-<p>With some mathematics we can lift this concept to the sphere. This is done by the <a href="vector3d.interp"><code class="language-plaintext highlighter-rouge">interp</code></a> command of the class <a href="vector3d.vector3d"><code class="language-plaintext highlighter-rouge">vector3d</code></a> when the argument <code class="language-plaintext highlighter-rouge">'linear'</code> is given</p>
+<p>With some mathematics we can lift this concept to the sphere. This is done by the <a href="vector3d.interp"><code class="language-plaintext highlighter-rouge">interp</code></a> command of the class <code class="language-plaintext highlighter-rouge"><a href="vector3d.vector3d.html">vector3d</a></code> when the argument <code class="language-plaintext highlighter-rouge">'linear'</code> is given</p>
 {% highlight matlab %}
 sFTri = interp(nodes, S.values, 'linear');
 {% endhighlight %}
-<p>To see that we realy have the exact function values, we can evaluate <code class="language-plaintext highlighter-rouge">sFTri</code> of type <a href="S2FunTri.S2FunTri"><code class="language-plaintext highlighter-rouge">S2FunTri</code></a> and compare it with the original data values.</p>
+<p>To see that we really have the exact function values, we can evaluate <code class="language-plaintext highlighter-rouge">sFTri</code> of type <code class="language-plaintext highlighter-rouge"><a href="S2FunTri.S2FunTri.html">S2FunTri</a></code> and compare it with the original data values.</p>
 {% highlight matlab %}
 norm(eval(sFTri, nodes) - S.values)
 {% endhighlight %}
@@ -66,18 +66,18 @@ contourf(sFTri, 'upper');
 <center>
 {% include inline_image.html file="S2FunApproximationInterpolation_03.png" %}
 </center>
-<p>That does not look like the happy smiley face we had in mind. There are other variants to fill the gaps between the data nodes, still preserving the interpolation property, which may improve the result. But if we don't restrict ourselfs to the given function values in the nodes, we have more freedom, which can be seen in the case of approximation.</p>
-<h2 id="10">Approximation</h2>
-<p>In contrast to interpolation we are now not restricted to the function values in the nodes but still want to keep the error reasonably small. One way to achieve this is to approximate it with a series of spherical harmonics. We don't take as many spherical harmonics as there are nodes, such that we are in the overdetermined case. In that way we don't have a chance of getting the error in the nodes zero but hope for a smoother approximation. This can be achieved by the <a href="vector3d.interp"><code class="language-plaintext highlighter-rouge">interp</code></a> command of the class <a href="vector3d.vector3d"><code class="language-plaintext highlighter-rouge">vector3d</code></a> when the argument <code class="language-plaintext highlighter-rouge">'harmonicApproximation'</code>
+<p>That does not look like the happy smiley face we had in mind. There are other variants to fill the gaps between the data nodes, still preserving the interpolation property, which may improve the result. But if we don't restrict ourselves to the given function values in the nodes, we have more freedom, which can be seen in the case of approximation.</p>
+<h2 id="9">Approximation</h2>
+<p>In contrast to interpolation we are now not restricted to the function values in the nodes but still want to keep the error reasonably small. One way to achieve this is to approximate it with a series of spherical harmonics. We don't take as many spherical harmonics as there are nodes, such that we are in the overdetermined case. In that way we don't have a chance of getting the error in the nodes zero but hope for a smoother approximation. This can be achieved by the <a href="vector3d.interp"><code class="language-plaintext highlighter-rouge">interp</code></a> command of the class <code class="language-plaintext highlighter-rouge"><a href="vector3d.vector3d.html">vector3d</a></code> when the argument <code class="language-plaintext highlighter-rouge">'harmonic'</code>
 </p>
 {% highlight matlab %}
-sF = interp(nodes, S.values, 'harmonicApproximation');
+sF = interp(nodes, S.values, 'harmonic');
 contourf(sF, 'upper');
 {% endhighlight %}
 <center>
 {% include inline_image.html file="S2FunApproximationInterpolation_04.png" %}
 </center>
-<p>Plotting this function, we can immidiately see, that we have a much smoother function. But one has to keep in mind that the error in the data nodes is not zero as in the case of interpolation.</p>
+<p>Plotting this function, we can immediately see, that we have a much smoother function. But one has to keep in mind that the error in the data nodes is not zero as in the case of interpolation.</p>
 {% highlight matlab %}
 norm(eval(sF, nodes) - S.values)
 {% endhighlight %}
@@ -92,7 +92,7 @@ ans =
 <p>approximates our function. A basic strategy to achieve this is through least squares, where we minimize the functional</p>
 <p>\[ \sum_{n=1}^N|f(x_n)-g(x_n)|^2 \]</p>
 <p>for the data nodes \(x_n\), \(n=1,\dots,N\), \(f(x_n)\) the target function values and \(g(x_n)\) our approximation evaluated in the given data nodes.</p>
-<p>This can be done by the <code class="language-plaintext highlighter-rouge">lsqr</code> function of Matlab, which efficiently seeks for roots of the derivative of the given functional (also known as normal equation). In the process we compute the matrix-vector product with the Fourier-matrix multible times, where the Fourier-matrix is given by</p>
+<p>This can be done by the <code class="language-plaintext highlighter-rouge">lsqr</code> function of Matlab, which efficiently seeks for roots of the derivative of the given functional (also known as normal equation). In the process we compute the matrix-vector product with the Fourier-matrix multiple times, where the Fourier-matrix is given by</p>
 <p>\[ F = [Y_m^l(x_n)]_{n = 1,\dots,N;m = 0,\dots,M,l = -m,\dots,m}. \]</p>
 <p>This matrix-vector product can be computed efficiently with the use of the nonequispaced spherical Fourier transform <a href="https://www-user.tu-chemnitz.de/~potts/nfft/nfsft.php">NFSFT</a>.</p>
 <p>We end up with the Fourier-coefficients of our approximation \(g\), which describe our approximation.</p>

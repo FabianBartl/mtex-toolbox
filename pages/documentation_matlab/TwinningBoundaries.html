@@ -43,7 +43,7 @@ CS = grains.CS;
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd = EBSD
+ebsd = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      0     46 (0.2%)  notIndexed                                                 
@@ -51,7 +51,7 @@ ebsd = EBSD
  
  Properties: bands, bc, bs, error, mad
  Scan unit : um
- X x Y x Z : [0 50] x [0 41] x [0 0]
+ X x Y x Z : [0, 50] x [0, 41] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <center>
@@ -66,7 +66,7 @@ gB = grains.boundary
 gB = grainBoundary
  
  Segments  length   mineral 1  mineral 2
-     1192  184 µm  notIndexed  Magnesium
+     1181  184 µm  notIndexed  Magnesium
      3164  724 µm   Magnesium  Magnesium
 {% endhighlight %}
 <p>The output tells us that we have 3219 Magnesium to Magnesium boundary segments and 606 boundary segments where the grains are cut by the scanning boundary. To restrict the grain boundaries to a specific phase transition you shall do</p>
@@ -129,7 +129,7 @@ round2Miller(mori_mean)
 
 {% highlight plaintext %}
 mori_mean = misorientation (Magnesium → Magnesium)
-  antipodal:         true
+  antipodal: true
  
   Bunge Euler angles in degree
      phi1     Phi    phi2
@@ -141,16 +141,16 @@ mori_mean = misorientation (Magnesium → Magnesium)
 {% endhighlight %}
 <p>Bases on the output above we may now define the special orientation relationship as</p>
 {% highlight matlab %}
-twinning = orientation.map(Miller(0,1,-1,-1,CS),Miller(-1,1,0,-1,CS),...
-  Miller(1,0,-1,1,CS,'uvw'),Miller(1,0,-1,-1,CS,'uvw'))
+twinning = orientation.map(Miller(1,-1,0,1,CS),Miller(1,0,-1,-1,CS),...
+  Miller(0,1,-1,1,CS,'uvw'),Miller(1,-1,0,1,CS,'uvw'))
 {% endhighlight %}
 
 {% highlight plaintext %}
 twinning = misorientation (Magnesium → Magnesium)
  
- (01-1-1) || (-110-1)   [10-11] || [10-1-1]
+ (10-1-1) || (01-11)   [01-11] || [1-101]
 {% endhighlight %}
-<p>and observe that it is actually a rotation about axis (-1210) and angle 86.3 degree</p>
+<p>Considering the disorientation angle we observe that it is 86.3 degree with respect to the axis (-1210)</p>
 {% highlight matlab %}
 % the rotational axis
 round(twinning.axis)
@@ -165,6 +165,26 @@ ans = Miller (Magnesium)
   1  1 -2  0
 ans =
    86.2992
+{% endhighlight %}
+<p>However, remembering that twinning refers to rotations about 180 degrees we may ask for the symmetrically equivalent misorientation with the maximum misorientation angle. This can be computed using the option <code class="language-plaintext highlighter-rouge">'max'</code>
+</p>
+{% highlight matlab %}
+angle(twinning,'max')/degree
+{% endhighlight %}
+
+{% highlight plaintext %}
+ans =
+   180
+{% endhighlight %}
+<p>The corresponding rotational axis is</p>
+{% highlight matlab %}
+v = round(Miller(axis(twinning,'max'),'UVTW'))
+{% endhighlight %}
+
+{% highlight plaintext %}
+v = Miller (Magnesium)
+  U  V  T  W
+  1 -1  0  1
 {% endhighlight %}
 <p>Next, we check for each boundary segment whether it is a twinning boundary, i.e., whether boundary misorientation is close to the twinning.</p>
 {% highlight matlab %}

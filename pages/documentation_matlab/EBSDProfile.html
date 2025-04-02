@@ -27,7 +27,6 @@ To make changes, update the MATLAB code and republish this document.
 {% highlight matlab %}
 close all
 mtexdata forsterite silent
-plotx2east
 
 % reconstruct grains
 [grains,ebsd.grainId,ebsd.mis2mean] = calcGrains(ebsd('indexed'));
@@ -45,7 +44,7 @@ hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-grain_selected = grain2d
+grain_selected = grain2d (y↑→x)
  
  Phase  Grains  Pixels     Mineral  Symmetry  Crystal reference frame
      1       1    2614  Forsterite       mmm                         
@@ -77,14 +76,14 @@ ebsd_line = spatialProfile(ebsd(grain_selected),lineSec)
 {% endhighlight %}
 
 {% highlight plaintext %}
-ebsd_line = EBSD
+ebsd_line = EBSD (y↑→x)
  
  Phase  Orientations     Mineral         Color  Symmetry  Crystal reference frame
      1     83 (100%)  Forsterite  LightSkyBlue       mmm                         
  
  Properties: bands, bc, bs, error, mad, grainId, mis2mean
  Scan unit : um
- X x Y x Z : [18100 18800] x [6450 10600] x [0 0]
+ X x Y x Z : [18100, 18800] x [6450, 10600] x [0, 0]
  Normal vector: (0,0,1)
 {% endhighlight %}
 <p>Next, we plot the misorientation angle to the first point of the line as well as the orientation gradient</p>

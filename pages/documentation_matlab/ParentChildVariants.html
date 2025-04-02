@@ -52,11 +52,11 @@ oriChild = oriParent * inv(beta2alpha)
 {% endhighlight %}
 
 {% highlight plaintext %}
-oriChild = orientation (Ti (alpha) → xyz)
+oriChild = orientation (Ti (alpha) → y↑→x)
  
   Bunge Euler angles in degree
      phi1     Phi    phi2
-  216.959 61.6181 57.1015
+  5.33657 106.432 183.424
 {% endhighlight %}
 <p>This orientation relationship is characterized by alignment of hexagonal (0001) plane with the cubic (110) plane and alignment of the hexagonal [2-1-10] direction with the cubic [-11-1] direction.</p>
 {% highlight matlab %}
@@ -96,7 +96,7 @@ oriParentSym = oriParent.symmetrise
 {% endhighlight %}
 
 {% highlight plaintext %}
-oriParentSym = orientation (Ti (beta) → xyz)
+oriParentSym = orientation (Ti (beta) → y↑→x)
   size: 24 x 1
 {% endhighlight %}
 <p>Applying the <code class="language-plaintext highlighter-rouge">beta2alpha</code> phase relationship to these 24 different representations we obtain 24 child orientations.</p>
@@ -105,7 +105,7 @@ oriChild = oriParentSym * inv(beta2alpha)
 {% endhighlight %}
 
 {% highlight plaintext %}
-oriChild = orientation (Ti (alpha) → xyz)
+oriChild = orientation (Ti (alpha) → y↑→x)
   size: 24 x 1
 {% endhighlight %}
 <p>Some of these child orientations are symmetrically equivalent with respect to the hexagonal child symmetry. In fact there are 12 pairs of symmetrically equivalent child orientations as depicted in the following inverse pole figure.</p>
@@ -134,13 +134,13 @@ oriChild = variants(beta2alpha,oriParent,2:3)
 {% endhighlight %}
 
 {% highlight plaintext %}
-oriChild = orientation (Ti (alpha) → xyz)
+oriChild = orientation (Ti (alpha) → y↑→x)
   size: 1 x 2
  
   Bunge Euler angles in degree
      phi1     Phi    phi2
-  36.9588 118.382  112.37
-  137.503 23.6601 232.337
+  309.249 152.169  72.672
+  34.3467 53.0264 286.984
 {% endhighlight %}
 <p>It is important to understand that the reduction to 12 variants from 24 symmetrically equivalent parent orientations comes from the specific Burger orientation relationship. For a general orientation relationship, e.g., if we disturb the OR a little bit</p>
 {% highlight matlab %}
@@ -152,7 +152,7 @@ beta2alpha = misorientation (Ti (beta) → Ti (alpha))
  
   Bunge Euler angles in degree
      phi1     Phi    phi2
-  184.875 88.8104  45.208
+  184.881 88.6838 44.8256
 {% endhighlight %}
 <p>we will always have exactly 24 variants. For the above example we observe how the 12 pairs of orientations which diverge slightly.</p>
 {% highlight matlab %}

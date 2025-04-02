@@ -23,6 +23,7 @@ To make changes, update the MATLAB code and republish this document.
 <div>
 <!--introduction-->
 <!--/introduction-->
+<p>Compute the S2-Fourier/harmonic coefficients of an given <a href="S2VectorField.S2VectorField.html">S2VectorField</a> or given evaluations on a specific quadrature grid.</p>
 <h2 id="3">Syntax</h2>
 {% highlight matlab %}
 sVF = S2VectorField.quadrature(v, value)
@@ -53,7 +54,7 @@ sVF = S2VectorField.quadrature(f, 'bandwidth', bw)
             <tt>f</tt>
          </td>
          <td>
-            <tt>function handle in <a href="vector3d.vector3d.html">vector3d</a></tt>
+            <tt><a href="S2VectorField.S2VectorField.html">S2VectorField</a>, @function_handle in vector3d</tt>
          </td>
       </tr>
    </table>
@@ -83,6 +84,10 @@ sVF = S2VectorField.quadrature(f, 'bandwidth', bw)
          </td>
       </tr>
    </table>
+</p>
+<h2 id="7">See also</h2>
+<p>
+<a href="S2VectorFieldHarmonic.approximate.html">S2VectorFieldHarmonic.approximate</a> <a href="S2VectorFieldHarmonic.html">S2VectorFieldHarmonic</a> <a href="S2FunHarmonic.quadrature.html">S2FunHarmonic.quadrature</a>
 </p>
 </div>
 </body>

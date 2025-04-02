@@ -32,7 +32,7 @@ plot(SO3F1,'sigma')
 {% endhighlight %}
 
 {% highlight plaintext %}
-SO3F1 = SO3FunRBF (Quartz → xyz)
+SO3F1 = SO3FunRBF (Quartz → y↑→x)
  
   multimodal components
   kernel: de la Vallee Poussin, halfwidth 5°
@@ -51,7 +51,7 @@ plot(SO3F2,'sigma')
 {% endhighlight %}
 
 {% highlight plaintext %}
-SO3F2 = SO3FunRBF (Quartz → xyz)
+SO3F2 = SO3FunRBF (Quartz → y↑→x)
  
   unimodal component
   kernel: de la Vallee Poussin, halfwidth 10°
@@ -74,7 +74,7 @@ plot(2 * SO3F1 + SO3F2,'sigma')
 {% endhighlight %}
 
 {% highlight plaintext %}
-ans = SO3FunComposition (Quartz → xyz)
+ans = SO3FunComposition (Quartz → y↑→x)
  
   uniform component
   weight: 1
@@ -120,7 +120,7 @@ g.eval(inv(R))
 {% endhighlight %}
 
 {% highlight plaintext %}
-g = SO3FunRBF (xyz → Quartz)
+g = SO3FunRBF (y↑→x → Quartz)
  
   multimodal components
   kernel: de la Vallee Poussin, halfwidth 5°
@@ -139,17 +139,29 @@ ans =
 <li>if a single rotational function is provided the global maximum / minimum of the function is computed</li>
 <li>if two rotational functions are provided, a rotational function defined as the pointwise min/max between these two functions is computed</li>
 <li>if a rotational function and a single number are passed as arguments a rotational function defined as the pointwise min/max between the function and the value is computed</li>
+<li>if additionally the option <code class="language-plaintext highlighter-rouge">'numLocal'</code> is provided the certain number of local minima / maxima is computed</li>
 </ul>
 </div>
 {% highlight matlab %}
-% * if additionally the option 'numLocal' is provided the certain number of
-% local minima / maxima is computed
-
 plot(2 * SO3F1 + SO3F2,'phi2',(0:3)*30*degree)
 
 % compute and mark the global maximum
-[maxvalue, maxnodes] = max(2 * SO3F1 + SO3F2,'numLocal',2);
-annotate(maxnodes)
+[maxValue, maxNodes] = max(2 * SO3F1 + SO3F2,'numLocal',2)
+annotate(maxNodes)
+{% endhighlight %}
+
+{% highlight plaintext %}
+maxValue =
+  260.2697
+  212.3075
+ 
+maxNodes = orientation (Quartz → y↑→x)
+  size: 2 x 1
+ 
+  Bunge Euler angles in degree
+     phi1     Phi    phi2
+   89.904 44.7846 270.085
+  133.047 34.5158  207.16
 {% endhighlight %}
 <center>
 {% include inline_image.html file="SO3FunOperations_06.png" %}
@@ -210,12 +222,12 @@ G = grad(SO3F1)
 % plot the gradient on top of the function
 plot(SO3F1,'sigma')
 hold on
-plot(G,'color','black','linewidth',2,'resolution',5*degree)
+plot(G,'color','black','linewidth',1,'resolution',5*degree)
 hold off
 {% endhighlight %}
 
 {% highlight plaintext %}
-G = SO3VectorFieldHarmonic (Quartz → xyz)
+G = SO3VectorFieldHarmonic (Quartz → y↑→x)
   bandwidth: 48
   tangent space: leftVector
 {% endhighlight %}
@@ -223,8 +235,8 @@ G = SO3VectorFieldHarmonic (Quartz → xyz)
 {% include inline_image.html file="SO3FunOperations_07.png" %}
 </center>
 <p>We observe long arrows at the positions of big changes in intensity and almost invisible arrows in regions of constant intensity.</p>
-<h2 id="14">Rotating rotational functions</h2>
-<p>Rotating a \(SO(3)\) function works with the command <a href="SO3Fun.rotate.html"><code class="language-plaintext highlighter-rouge">rotate</code></a>
+<h2 id="14">Rotating orientation dependent functions</h2>
+<p>Rotating an orientation dependent function works with the command <a href="SO3Fun.rotate.html"><code class="language-plaintext highlighter-rouge">rotate</code></a>
 </p>
 {% highlight matlab %}
 % define a rotation
@@ -238,7 +250,7 @@ plot(SO3F,'sigma')
 {% endhighlight %}
 
 {% highlight plaintext %}
-SO3F = SO3FunHarmonic (Quartz → xyz)
+SO3F = SO3FunHarmonic (Quartz → y↑→x)
   bandwidth: 48
   weight: 3
 {% endhighlight %}
