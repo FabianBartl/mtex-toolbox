@@ -132,7 +132,6 @@ text([xvector,yvector,zvector],'labeled','BackgroundColor','w')
 E = S2FunHarmonicSym (Olivin)
   bandwidth: 128
   antipodal: true
-  isReal: true
  
 ans =
   286.9284
@@ -158,7 +157,6 @@ beta.eval(d)
 beta = S2FunHarmonicSym (Olivin)
   bandwidth: 2
   antipodal: true
-  isReal: true
  
 ans =
     0.0018
@@ -192,7 +190,6 @@ nu = C.PoissonRatio(p)
 nu = S2FunHarmonicSym (Olivin)
   bandwidth: 4
   antipodal: true
-  isReal: true
 {% endhighlight %}
 <p>we again obtain a spherical function. However, this time it is only meaningful to evaluate this function at directions perpendicular to the pulling direction <code class="language-plaintext highlighter-rouge">p</code>. Hence, a good way to visualize this function is to plot it as a <a href="S2Fun.plotSection.html">section</a> in the x/y plane</p>
 {% highlight matlab %}

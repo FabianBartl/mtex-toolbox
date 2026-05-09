@@ -1004,6 +1004,10 @@ entries:
           url: /crystalShape.plot.html
           output: web
 
+        - title: "plotInnerDirection"
+          url: /crystalShape.plotInnerDirection.html
+          output: web
+
         - title: "plotInnerFace"
           url: /crystalShape.plotInnerFace.html
           output: web
@@ -1326,6 +1330,10 @@ entries:
           url: /orientation.fibreVolume.html
           output: web
 
+        - title: "find"
+          url: /orientation.find.html
+          output: web
+
         - title: "fit"
           url: /orientation.fit.html
           output: web
@@ -1404,6 +1412,10 @@ entries:
 
         - title: "plotSection"
           url: /orientation.plotSection.html
+          output: web
+
+        - title: "plotSectionOutOfFR"
+          url: /orientation.plotSectionOutOfFR.html
           output: web
 
         - title: "power"
@@ -1931,6 +1943,59 @@ entries:
           url: /dislocationSystem.vertcat.html
           output: web
 
+      - title: "plane3d"
+        url: /plane3d_index.html
+        output: web
+        subfolderitems:
+
+        - title: "plane3d"
+          url: /plane3d.plane3d.html
+          output: web
+
+        - title: "cat"
+          url: /plane3d.cat.html
+          output: web
+
+        - title: "dist"
+          url: /plane3d.dist.html
+          output: web
+
+        - title: "horzcat"
+          url: /plane3d.horzcat.html
+          output: web
+
+        - title: "intersect"
+          url: /plane3d.intersect.html
+          output: web
+
+        - title: "length"
+          url: /plane3d.length.html
+          output: web
+
+        - title: "plot"
+          url: /plane3d.plot.html
+          output: web
+
+        - title: "project"
+          url: /plane3d.project.html
+          output: web
+
+        - title: "size"
+          url: /plane3d.size.html
+          output: web
+
+        - title: "subSet"
+          url: /plane3d.subSet.html
+          output: web
+
+        - title: "subsref"
+          url: /plane3d.subsref.html
+          output: web
+
+        - title: "vertcat"
+          url: /plane3d.vertcat.html
+          output: web
+
       - title: "quaternion"
         url: /quaternion_index.html
         output: web
@@ -2429,10 +2494,6 @@ entries:
 
         - title: "checkInside"
           url: /S2Triangulation.checkInside.html
-          output: web
-
-        - title: "eq"
-          url: /S2Triangulation.eq.html
           output: web
 
         - title: "plot"
@@ -3205,6 +3266,10 @@ entries:
           url: /grain2d.isInclusion.html
           output: web
 
+        - title: "isOuterBoundary"
+          url: /grain2d.isOuterBoundary.html
+          output: web
+
         - title: "load"
           url: /grain2d.load.html
           output: web
@@ -3334,10 +3399,6 @@ entries:
           url: /grainBoundary.calcGBND.html
           output: web
 
-        - title: "calcGBND2"
-          url: /grainBoundary.calcGBND2.html
-          output: web
-
         - title: "calcGBPD"
           url: /grainBoundary.calcGBPD.html
           output: web
@@ -3376,10 +3437,6 @@ entries:
 
         - title: "isTwinning"
           url: /grainBoundary.isTwinning.html
-          output: web
-
-        - title: "load"
-          url: /grainBoundary.load.html
           output: web
 
         - title: "minus"
@@ -3576,70 +3633,16 @@ entries:
           url: /parentGrainReconstructor.selectInteractive.html
           output: web
 
-  - title: "ODF Analysis"
-    url: /ODFAnalysis_index.html
+  - title: "Pole Figures"
+    url: /PoleFigureAnalysis_index.html
     output: web
     folderitems:
 
     - title: "Overview"
-      url: /ODFOverview.html
+      url: /PoleFigureOverview.html
       output: web
 
       subfolders:
-      - title: "ODF"
-        url: /ODF_index.html
-        output: web
-        subfolderitems:
-
-        - title: "ODF"
-          url: /ODF.ODF.html
-          output: web
-
-        - title: "load"
-          url: /ODF.load.html
-          output: web
-
-        - title: "neuralgas"
-          url: /ODF.neuralgas.html
-          output: web
-
-      - title: "uniformComponent"
-        url: /uniformComponent_index.html
-        output: web
-
-      - title: "unimodalComponent"
-        url: /unimodalComponent_index.html
-        output: web
-
-      - title: "fibreComponent"
-        url: /fibreComponent_index.html
-        output: web
-
-      - title: "FourierComponent"
-        url: /FourierComponent_index.html
-        output: web
-
-      - title: "BinghamComponent"
-        url: /BinghamComponent_index.html
-        output: web
-
-      - title: "Standard ODFs"
-        url: /standardODFs_index.html
-        output: web
-
-      - title: "kernel"
-        url: /kernel_index.html
-        output: web
-
-    - title: "Pole Figures"
-      url: /PoleFigureAnalysis_index.html
-      output: web
-      folderitems:
-
-      - title: "Overview"
-        url: /PoleFigureOverview.html
-        output: web
-
       - title: "poleFigure"
         url: /PoleFigure_index.html
         output: web
@@ -3667,6 +3670,10 @@ entries:
 
         - title: "calcODF"
           url: /PoleFigure.calcODF.html
+          output: web
+
+        - title: "calcODFIterative"
+          url: /PoleFigure.calcODFIterative.html
           output: web
 
         - title: "calcPoleFigure"
@@ -4686,6 +4693,14 @@ entries:
           url: /S2Fun.smiley.html
           output: web
 
+        - title: "smooth"
+          url: /S2Fun.smooth.html
+          output: web
+
+        - title: "sqrt"
+          url: /S2Fun.sqrt.html
+          output: web
+
         - title: "sum"
           url: /S2Fun.sum.html
           output: web
@@ -4710,6 +4725,14 @@ entries:
           url: /S2Fun.volume.html
           output: web
 
+        - title: "S2FunRBF"
+          url: /S2FunRBF.html
+          output: web
+
+        - title: "supportFun"
+          url: /supportFun.html
+          output: web
+
       - title: "S2FunHandle"
         url: /S2FunHandle_index.html
         output: web
@@ -4717,6 +4740,10 @@ entries:
 
         - title: "S2FunHandle"
           url: /S2FunHandle.S2FunHandle.html
+          output: web
+
+        - title: "example"
+          url: /S2FunHandle.example.html
           output: web
 
         - title: "rotate_outer"
@@ -4742,6 +4769,10 @@ entries:
 
         - title: "eval"
           url: /S2FunTri.eval.html
+          output: web
+
+        - title: "example"
+          url: /S2FunTri.example.html
           output: web
 
         - title: "grad"
@@ -4795,19 +4826,6 @@ entries:
       - title: "BinghamS2"
         url: /BinghamS2_index.html
         output: web
-        subfolderitems:
-
-        - title: "BinghamS2"
-          url: /BinghamS2.BinghamS2.html
-          output: web
-
-        - title: "fit"
-          url: /BinghamS2.fit.html
-          output: web
-
-        - title: "rotate"
-          url: /BinghamS2.rotate.html
-          output: web
 
       - title: "S2FunHarmonic"
         url: /S2FunHarmonic_index.html
@@ -4818,16 +4836,16 @@ entries:
           url: /S2FunHarmonic.S2FunHarmonic.html
           output: web
 
-        - title: "abs"
-          url: /S2FunHarmonic.abs.html
-          output: web
-
         - title: "acos"
           url: /S2FunHarmonic.acos.html
           output: web
 
         - title: "adjoint"
           url: /S2FunHarmonic.adjoint.html
+          output: web
+
+        - title: "adjointNFSFT"
+          url: /S2FunHarmonic.adjointNFSFT.html
           output: web
 
         - title: "approximate"
@@ -4882,8 +4900,20 @@ entries:
           url: /S2FunHarmonic.eval.html
           output: web
 
+        - title: "evalEquispacedFFT"
+          url: /S2FunHarmonic.evalEquispacedFFT.html
+          output: web
+
+        - title: "evalNFSFT"
+          url: /S2FunHarmonic.evalNFSFT.html
+          output: web
+
         - title: "even"
           url: /S2FunHarmonic.even.html
+          output: web
+
+        - title: "example"
+          url: /S2FunHarmonic.example.html
           output: web
 
         - title: "grad"
@@ -4896,6 +4926,10 @@ entries:
 
         - title: "interpolate"
           url: /S2FunHarmonic.interpolate.html
+          output: web
+
+        - title: "invRadon"
+          url: /S2FunHarmonic.invRadon.html
           output: web
 
         - title: "isempty"
@@ -4970,6 +5004,10 @@ entries:
           url: /S2FunHarmonic.simultaniousCG.html
           output: web
 
+        - title: "sphericalHarmonicTrafo"
+          url: /S2FunHarmonic.sphericalHarmonicTrafo.html
+          output: web
+
         - title: "sqrt"
           url: /S2FunHarmonic.sqrt.html
           output: web
@@ -5029,6 +5067,10 @@ entries:
 
         - title: "display"
           url: /S2FunHarmonicSym.display.html
+          output: web
+
+        - title: "example"
+          url: /S2FunHarmonicSym.example.html
           output: web
 
         - title: "plot"
@@ -5105,6 +5147,10 @@ entries:
           url: /S2AxisFieldTri.eval.html
           output: web
 
+        - title: "example"
+          url: /S2AxisFieldTri.example.html
+          output: web
+
       - title: "S2AxisFieldHarmonic"
         url: /S2AxisFieldHarmonic_index.html
         output: web
@@ -5132,6 +5178,10 @@ entries:
 
         - title: "eval"
           url: /S2AxisFieldHarmonic.eval.html
+          output: web
+
+        - title: "example"
+          url: /S2AxisFieldHarmonic.example.html
           output: web
 
         - title: "interpolate"
@@ -5248,6 +5298,10 @@ entries:
           url: /S2VectorFieldHarmonic.eval.html
           output: web
 
+        - title: "example"
+          url: /S2VectorFieldHarmonic.example.html
+          output: web
+
         - title: "interpolate"
           url: /S2VectorFieldHarmonic.interpolate.html
           output: web
@@ -5319,6 +5373,10 @@ entries:
 
         - title: "eval"
           url: /S2VectorFieldTri.eval.html
+          output: web
+
+        - title: "example"
+          url: /S2VectorFieldTri.example.html
           output: web
 
         - title: "minus"
@@ -5666,8 +5724,20 @@ entries:
           url: /SO3FunHandle.SO3FunHandle.html
           output: web
 
+        - title: "cat"
+          url: /SO3FunHandle.cat.html
+          output: web
+
+        - title: "ctranspose"
+          url: /SO3FunHandle.ctranspose.html
+          output: web
+
         - title: "display"
           url: /SO3FunHandle.display.html
+          output: web
+
+        - title: "end"
+          url: /SO3FunHandle.end.html
           output: web
 
         - title: "eval"
@@ -5678,6 +5748,10 @@ entries:
           url: /SO3FunHandle.example.html
           output: web
 
+        - title: "horzcat"
+          url: /SO3FunHandle.horzcat.html
+          output: web
+
         - title: "length"
           url: /SO3FunHandle.length.html
           output: web
@@ -5686,12 +5760,44 @@ entries:
           url: /SO3FunHandle.numel.html
           output: web
 
+        - title: "permute"
+          url: /SO3FunHandle.permute.html
+          output: web
+
+        - title: "reshape"
+          url: /SO3FunHandle.reshape.html
+          output: web
+
         - title: "rotate_outer"
           url: /SO3FunHandle.rotate_outer.html
           output: web
 
         - title: "size"
           url: /SO3FunHandle.size.html
+          output: web
+
+        - title: "squeeze"
+          url: /SO3FunHandle.squeeze.html
+          output: web
+
+        - title: "subSet"
+          url: /SO3FunHandle.subSet.html
+          output: web
+
+        - title: "subsasgn"
+          url: /SO3FunHandle.subsasgn.html
+          output: web
+
+        - title: "subsref"
+          url: /SO3FunHandle.subsref.html
+          output: web
+
+        - title: "transpose"
+          url: /SO3FunHandle.transpose.html
+          output: web
+
+        - title: "vertcat"
+          url: /SO3FunHandle.vertcat.html
           output: web
 
       - title: "SO3FunBingham"
@@ -5890,8 +5996,16 @@ entries:
           url: /SO3FunRBF.cat.html
           output: web
 
+        - title: "conj"
+          url: /SO3FunRBF.conj.html
+          output: web
+
         - title: "conv"
           url: /SO3FunRBF.conv.html
+          output: web
+
+        - title: "ctranspose"
+          url: /SO3FunRBF.ctranspose.html
           output: web
 
         - title: "discreteSample"
@@ -5930,6 +6044,34 @@ entries:
           url: /SO3FunRBF.mean.html
           output: web
 
+        - title: "permute"
+          url: /SO3FunRBF.permute.html
+          output: web
+
+        - title: "plot"
+          url: /SO3FunRBF.plot.html
+          output: web
+
+        - title: "plot3d"
+          url: /SO3FunRBF.plot3d.html
+          output: web
+
+        - title: "plotFibre"
+          url: /SO3FunRBF.plotFibre.html
+          output: web
+
+        - title: "plotIPDF"
+          url: /SO3FunRBF.plotIPDF.html
+          output: web
+
+        - title: "plotPDF"
+          url: /SO3FunRBF.plotPDF.html
+          output: web
+
+        - title: "plotSection"
+          url: /SO3FunRBF.plotSection.html
+          output: web
+
         - title: "plus"
           url: /SO3FunRBF.plus.html
           output: web
@@ -5938,8 +6080,20 @@ entries:
           url: /SO3FunRBF.radon.html
           output: web
 
+        - title: "reshape"
+          url: /SO3FunRBF.reshape.html
+          output: web
+
         - title: "rotate"
           url: /SO3FunRBF.rotate.html
+          output: web
+
+        - title: "squeeze"
+          url: /SO3FunRBF.squeeze.html
+          output: web
+
+        - title: "subSet"
+          url: /SO3FunRBF.subSet.html
           output: web
 
         - title: "sum"
@@ -5948,6 +6102,10 @@ entries:
 
         - title: "times"
           url: /SO3FunRBF.times.html
+          output: web
+
+        - title: "transpose"
+          url: /SO3FunRBF.transpose.html
           output: web
 
         - title: "uminus"
@@ -6079,6 +6237,10 @@ entries:
           url: /SO3FunHarmonic.norm.html
           output: web
 
+        - title: "permute"
+          url: /SO3FunHarmonic.permute.html
+          output: web
+
         - title: "plot"
           url: /SO3FunHarmonic.plot.html
           output: web
@@ -6129,6 +6291,14 @@ entries:
 
         - title: "rotate_outer"
           url: /SO3FunHarmonic.rotate_outer.html
+          output: web
+
+        - title: "squeeze"
+          url: /SO3FunHarmonic.squeeze.html
+          output: web
+
+        - title: "subSet"
+          url: /SO3FunHarmonic.subSet.html
           output: web
 
         - title: "subsasgn"
@@ -6362,6 +6532,10 @@ entries:
           url: /SO3VectorFieldHarmonic.eval.html
           output: web
 
+        - title: "example"
+          url: /SO3VectorFieldHarmonic.example.html
+          output: web
+
         - title: "interpolate"
           url: /SO3VectorFieldHarmonic.interpolate.html
           output: web
@@ -6431,6 +6605,10 @@ entries:
           url: /SO3VectorFieldHandle.eval.html
           output: web
 
+        - title: "example"
+          url: /SO3VectorFieldHandle.example.html
+          output: web
+
         - title: "rotate"
           url: /SO3VectorFieldHandle.rotate.html
           output: web
@@ -6450,6 +6628,10 @@ entries:
 
         - title: "RK_symmetrised"
           url: /SO3Kernel.RK_symmetrised.html
+          output: web
+
+        - title: "calcFourier"
+          url: /SO3Kernel.calcFourier.html
           output: web
 
         - title: "conv"
@@ -6737,6 +6919,10 @@ entries:
 
         - title: "white2blackColorMap"
           url: /white2blackColorMap.html
+          output: web
+
+        - title: "zero2whiteColorMap"
+          url: /zero2whiteColorMap.html
           output: web
 
       - title: "directional color keys"
@@ -7089,6 +7275,10 @@ entries:
           url: /set_option.html
           output: web
 
+        - title: "uniqueData"
+          url: /uniqueData.html
+          output: web
+
       - title: "math"
         url: /math_tools_index.html
         output: web
@@ -7166,6 +7356,10 @@ entries:
           url: /eig3.html
           output: web
 
+        - title: "ellip2ke"
+          url: /ellip2ke.html
+          output: web
+
         - title: "ensureNonNeg"
           url: /ensureNonNeg.html
           output: web
@@ -7214,12 +7408,28 @@ entries:
           url: /nanplus.html
           output: web
 
+        - title: "noverk"
+          url: /noverk.html
+          output: web
+
         - title: "rhoInside"
           url: /rhoInside.html
           output: web
 
+        - title: "sizes2sub"
+          url: /sizes2sub.html
+          output: web
+
         - title: "smoothn"
           url: /smoothn.html
+          output: web
+
+        - title: "solve_lsq_book_constsize"
+          url: /solve_lsq_book_constsize.html
+          output: web
+
+        - title: "solve_lsq_book_varsize"
+          url: /solve_lsq_book_varsize.html
           output: web
 
         - title: "sphericalClebschGordan"
@@ -7588,6 +7798,10 @@ entries:
           url: /makeDisjoint.html
           output: web
 
+        - title: "mtexError"
+          url: /mtexError.html
+          output: web
+
         - title: "mtex_assert"
           url: /mtex_assert.html
           output: web
@@ -7702,6 +7916,14 @@ entries:
 
         - title: "vec2cell"
           url: /vec2cell.html
+          output: web
+
+        - title: "wraptext"
+          url: /wraptext.html
+          output: web
+
+        - title: "wraptext2"
+          url: /wraptext2.html
           output: web
 
         - title: "xnum2str"

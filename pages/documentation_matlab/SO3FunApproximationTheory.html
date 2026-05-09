@@ -145,6 +145,8 @@ plot(SO3F,'sigma')
 {% endhighlight %}
 
 {% highlight plaintext %}
+Warning: Maximum number of iterations reached, result may not
+have converged to the optimum yet. 
 ans =
     0.0125
 {% endhighlight %}
@@ -170,6 +172,11 @@ psi = SO3DeLaValleePoussinKernel('halfwidth',2.5*degree);
 SO3F = interp(ori,S.values,'kernel',psi,'density');
 
 plot(SO3F,'sigma')
+{% endhighlight %}
+
+{% highlight plaintext %}
+Warning: Maximum number of iterations reached, result may not
+have converged to the optimum yet.
 {% endhighlight %}
 <center>
 {% include inline_image.html file="SO3FunApproximationTheory_06.png" %}

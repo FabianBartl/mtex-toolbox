@@ -12,20 +12,20 @@ toc: false
     <div id="addons-mtex-gui" class="col-md-6">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-                <img src="images/thumbnails/MTEX-GUI_screenshot.png">
+                <img src="images/thumbnails/TrueEBSD_webpage_pic.gif">
             </div>
             <div class="panel-body">
-                <h4>MTEX GUI</h4>
-                <p>...
-                    is a graphical user interface to MTEX that allows to perform many analysis step in a non programming way.
+                <h4>TrueEBSD</h4>
+                <p>... performs spatial distortion corrections and alignments between images and electron backscatter diffraction maps. 
                 </p>
                 <p>
                     <i class="fa fa-user"></i>
-                    {% include reference.html link="https://www.researchgate.net/profile/Jessica_Hiscocks" content="Jessica Hiscocks" %}
+                    {% include reference.html link="https://github.com/vtvivian" content="Vivian Tong" %}
                 </p>
                 <p>
                     <i class="fa fa-home"></i>
-                    {% include reference.html link="https://www.researchgate.net/publication/341722714_MTEX_GUI_3pt4-_An_updated_graphical_interface_for_MTEX" content="ResearchGate: An updated graphical interface for MTEX" %}
+                    {% include reference.html
+    link="https://github.com/vtvivian/mtex-trueEbsd" content="Github: vtvivian/mtex-trueEbsd" %}
                 </p>
             </div>
         </div>
@@ -149,11 +149,11 @@ toc: false
     <div id="addons-mtex2gmsh" class="col-md-6">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-                <img src="">
+                <img src="CVA.png">
             </div>
             <div class="panel-body">
                 <h4>CVA </h4>
-                <p>... Crystallographic Vorticity Axis Analysis
+                <p>...  is a function library for conducting orientation dispersion analyses with MTEX using principal geodesic analysis (PGA) — a generalization of principal component analysis for nonlinear Riemannian manifolds. PGA can be used to identify specimen and crystal axes associated with rotational dispersion of intragranular orientations, providing a proxy for a local slip/kinematic reference frame. The inaugural application by Michels et al. (2015) was to used identify sample-scale orientation dispersion axes that the authors demonstrated tracked vorticity axes of tectonic shear zones from which the samples were collected. The authors termed this method of PGA application “crystallographic vorticity axis (CVA) analysis”. The functions in this library allow users to implement the CVA analysis and also to explore new/custom applications of PGA of their own design.
                 </p>
                 <p>
                     <i class="fa fa-user"></i>

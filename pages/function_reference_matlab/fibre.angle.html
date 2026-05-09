@@ -1,5 +1,5 @@
 ---
-title: angle
+title: fibre.angle
 
 sidebar: function_reference_sidebar
 permalink: fibre.angle.html
@@ -13,7 +13,7 @@ toc: false
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
     -->
-<title>angle</title>
+<title>fibre.angle</title>
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
 <meta name="DC.source" content="script_fibre__angle.m">
 </head>
@@ -23,10 +23,14 @@ To make changes, update the MATLAB code and republish this document.
 <div>
 <!--introduction-->
 <!--/introduction-->
-<p>angle fibre to orientation or fibre to fibre</p>
+<p>angle fiber to orientation or fiber to fibre</p>
 <h2 id="3">Syntax</h2>
 {% highlight matlab %}
 omega = angle(f,ori) % angle orientation to fibre
+[omega, oriF] = angle(f,ori)
+{% endhighlight %}
+
+{% highlight matlab %}
 omega = angle(f1,f2) % angle fibre to fibre
 {% endhighlight %}
 <h2 id="4">Input</h2>
@@ -59,6 +63,14 @@ omega = angle(f1,f2) % angle fibre to fibre
          </td>
          <td>
             <tt>double</tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>oriF</tt>
+         </td>
+         <td>
+            <tt><a href="orientation.orientation.html">orientation</a> on the fibre that minimizes the angle</tt>
          </td>
       </tr>
    </table>

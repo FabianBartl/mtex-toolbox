@@ -34,44 +34,34 @@ of material scientists, geologists and mathematicians.
             </div>
             <div class="panel-body">
                 <ul class="no_bullet">
-				<li>
-                        03/25 &minus;
-							{% include reference.html link="https://github.com/mtex-toolbox/mtex/releases/download/mtex-6.2.beta.3/mtex-6.2.beta.3.zip" content="MTEX 6.1.beta3" download=true %}
+					<li>
+                        04/26 &minus; new preprint:
+							{% include reference.html link="https://arxiv.org/abs/2604.17997" content="A unified framework for grain boundary
+							distributions in textured materials" pdf=true%}
+                    </li>
+					<li>
+                        03/26 &minus; new preprint:
+							{% include reference.html
+							link="https://doi.org/10.2139/ssrn.6208342"
+							content="Three-Dimensional Shape Metrics for Martensite and
+							Bainite From Two-Dimensional Orientation Maps" pdf=true%}
+                    </li>
+					<li>
+                        03/26 &minus; addon 
+						{% include reference.html link="https://www.github.com/vtvivian/mtex-trueEbsd" content="TrueEBSD" %}
+						for aligning EBSD and SEM images
+                    </li> 
+					<li>
+                        03/26 &minus;
+							{% include reference.html link="https://github.com/mtex-toolbox/mtex/releases/download/mtex-6.1.1/mtex-6.1.1.zip" content="MTEX 6.1.1" download=true %}
                         released:
                         {% include reference.html link="changelog#1" content="Release Notes" %}
                     </li>
 					<li>
-						03/25 &minus;
-						{% include reference.html link="workshop25?" content="MTEX Workshop 25" %}:
-						{% include reference.html link="https://github.com/mtex-toolbox/mtex/discussions/2249" content="Announcement" %}
-                    </li>
-   					<li>
-                        11/24 &minus;
-							{% include reference.html link="https://github.com/mtex-toolbox/mtex/releases/download/mtex-6.0.0/mtex-6.0.0.zip" content="MTEX 6.0.0" download=true %}
-                        released:
-                        {% include reference.html link="changelog#1" content="Release Notes" %}
-                    </li>
-					<!--<li>
-						03/24 &minus;
-						{% include reference.html link="workshop24?" content="MTEX Workshop 24" %}:
-                        {% include reference.html link="https://github.com/mtex-toolbox/mtex/discussions/2249" content="Announcement" %}
-                    </li>-->
-                    <li>
-                        03/22 &minus; addon 
-                        {% include reference.html link="https://github.com/ORTools4MTEX/ORTools" content="ORTools" %}
-                        for parent grain reconstruction
-                    </li>
-                    <li>
-                        03/22 &minus;
-                        {% include reference.html link="https://www.researchgate.net/publication/353330126_Getting_Started_with_MTEX_for_EBSD_analysis_Rev6" content="MTEX GUI 3.5" %}
-                        by 
-                        {% include reference.html link="https://www.researchgate.net/profile/Jessica-Hiscocks" content="J. Hiscocks" %}
-                    </li>
-                    <li>
-                        07/21 &minus;
-                        {% include reference.html link="https://www.researchgate.net/publication/353330126_Getting_Started_with_MTEX_for_EBSD_analysis_Rev6" content="Getting Started with MTEX for EBSD Analysis" download=true %}
-                        by J. Hiscocks
-                    </li>
+						03/26 &minus;
+						{% include reference.html link="workshop26?" content="MTEX Workshop 2026" %}:
+						<!--{% include reference.html link="https://github.com/mtex-toolbox/mtex/discussions/2249" content="Announcement" %}-->
+					</li>                    
                  </ul>
             </div>
         </div>
@@ -292,16 +282,20 @@ of material scientists, geologists and mathematicians.
     <div class="col-md-4">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-				<a href="https://www.github.com/frankNiessen/phaseSegmenter">
-					<img src="images/thumbnails/phaseSegmenter_screenshot_centered.png">
+				<a href="https://www.github.com/vtvivian/mtex-trueEbsd">
+					<img src="images/thumbnails/TrueEBSD_webpage_pic.gif">
 				</a>
             </div>
             <div class="panel-body">
 				<h4>
-				{% include reference.html link="https://www.github.com/frankNiessen/phaseSegmenter" content="phaseSegmenter" %}
-				</h4>
+                <!--{% include reference.html link="https://www.github.com/frankNiessen/phaseSegmenter" content="phaseSegmenter" %}-->
+                {% include reference.html link="https://www.github.com/vtvivian/mtex-trueEbsd" content="TrueEBSD" %}
+                </h4>
 				<p>
+				<!--
 				toolbox for segmenting of phases
+				-->
+				toolbox for aligning EBSD and SEM images
 				</p>
                 <!--<p>
                     <i class="fa fa-user"></i>
@@ -382,7 +376,6 @@ of material scientists, geologists and mathematicians.
     </div>-->
 </div>
 
-
 <!-- latest publications cards and requirements and licensing card-->
 <div class="row">
     <div id="home-latest-publications" class="col-md-6">
@@ -395,12 +388,17 @@ of material scientists, geologists and mathematicians.
             </div>
             <div class="panel-body">
                 <ul>
+					<li>{% include reference.html link="https://arxiv.org/pdf/2604.17997" 
+					content="A unified framework for grain boundary distributions in textured materials" %}
+					</li>
+					<li> {% include reference.html link="https://doi.org/10.2139/ssrn.6208342"
+						content="Three-Dimensional Shape Metrics for Martensite and	Bainite From Two-Dimensional Orientation Maps" pdf=true%}
+                    </li>
 					<li>{% include reference.html link="https://www.sciencedirect.com/science/article/pii/S135964542300366X/pdfft?md5=cd5b4d579996e89cf4ba96bdee90fad4&pid=1-s2.0-S135964542300366X-main.pdf" content="Habit plane determination from reconstructed parent phase
     orientation maps" %}</li>
                     <li>{% include reference.html link="https://arxiv.org/pdf/2201.02103.pdf" content="The variant graph approach to improved parent grain reconstruction" %}</li>
                     <li>{% include reference.html link="https://www-user.tu-chemnitz.de/~rahi/paper/parentGrain.pdf" content="Parent grain reconstruction from partially or fully transformed microstructures in MTEX" %}</li>
                     <li>{% include reference.html link="https://www-user.tu-chemnitz.de/~rahi/paper/gazingAtCrystalBalls.pdf" content="Gazing at crystal balls - electron backscatter diffraction indexing and cross correlation on the sphere" %}</li>
-                    <li>{% include reference.html link="https://www-user.tu-chemnitz.de/~rahi/paper/denoising.pdf" content="Denoising of Crystal Orientation Maps" %}</li>
                 </ul>
             </div>
         </div>

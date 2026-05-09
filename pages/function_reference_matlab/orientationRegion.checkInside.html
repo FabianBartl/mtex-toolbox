@@ -1,5 +1,5 @@
 ---
-title: checkInside
+title: orientationRegion.checkInside
 
 sidebar: function_reference_sidebar
 permalink: orientationRegion.checkInside.html
@@ -13,7 +13,7 @@ toc: false
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
     -->
-<title>checkInside</title>
+<title>orientationRegion.checkInside</title>
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
 <meta name="DC.source" content="script_orientationRegion__checkInside.m">
 </head>
@@ -26,8 +26,56 @@ To make changes, update the MATLAB code and republish this document.
 <p>check for points to be inside the orientation region</p>
 <h2 id="3">Syntax</h2>
 {% highlight matlab %}
-inside = checkInside(oR,q,varargin)
+id = checkInside(oR,q)
+id = checkInside(oR,q,'tolerance',3*degree)
 {% endhighlight %}
+<h2 id="4">Input</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>oR</tt>
+         </td>
+         <td>
+            <tt><a href="orientationRegion.orientationRegion.html">orientationRegion</a></tt>
+         </td>
+      </tr>
+      <tr>
+         <td width="100px">
+            <tt>q</tt>
+         </td>
+         <td>
+            <tt><a href="quaternion.quaternion.html">quaternion</a></tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="5">Output</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>id</tt>
+         </td>
+         <td>
+            <tt>@logical</tt>
+         </td>
+      </tr>
+   </table>
+</p>
+<h2 id="6">Options</h2>
+<p>
+   <table cellpadding="4" cellspacing="0" class="funcref" width="100%">
+      <tr>
+         <td width="100px">
+            <tt>'tolerance'</tt>
+         </td>
+         <td>
+            <tt>tolerance at the region boundary (default: 1e-3)</tt>
+         </td>
+      </tr>
+   </table>
+</p>
 </div>
 </body>
 </html>

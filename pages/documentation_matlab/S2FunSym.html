@@ -22,24 +22,23 @@ To make changes, update the MATLAB code and republish this document.
     edit page</a></font>
 <div>
 <!--introduction-->
-<p> <a href="S2FunHarmonicSym.S2FunHarmonicSym"><code class="language-plaintext highlighter-rouge">S2FunHarmonicSym</code></a> is an extension of the <a href="S2FunHarmonic.S2FunHarmonic"><code class="language-plaintext highlighter-rouge">S2FunHarmonic</code></a> class which stores the symmetry with the function.</p>
+<p>The class <code class="language-plaintext highlighter-rouge">S2FunHarmonicSym</code> is an extension of the class <code class="language-plaintext highlighter-rouge"><a href="S2FunHarmonic.S2FunHarmonic.html">S2FunHarmonic</a></code> representing symmetric spherical functions.</p>
 <!--/introduction-->
 <h2 id="1">Defining a S2FunHarmonic</h2>
 <p>
 <b>Definition via symmetrisation</b>
 </p>
-<p>The simplest way to define a <a href="S2FunHarmonicSym.S2FunHarmonicSym"><code class="language-plaintext highlighter-rouge">S2FunHarmonicSym</code></a> is through the symmetrisation of an ordinary <a href="S2FunHarmonic.S2FunHarmonic"><code class="language-plaintext highlighter-rouge">S2FunHarmonic</code></a>.</p>
+<p>The simplest way to define a symmetric spherical function is through the symmetrisation of an ordinary <code class="language-plaintext highlighter-rouge"><a href="S2FunHarmonic.S2FunHarmonic.html">S2FunHarmonic</a></code>.</p>
 {% highlight matlab %}
 sF = S2Fun.smiley
-cs = specimenSymmetry('222');
+ss = specimenSymmetry('222');
 
-sFs1 = symmetrise(sF, cs);
+sFs1 = symmetrise(sF, ss);
 {% endhighlight %}
 
 {% highlight plaintext %}
 sF = S2FunHarmonic (y←↑x)
   bandwidth: 128
-  isReal: true
 {% endhighlight %}
 <div>
 <ul>
@@ -63,12 +62,12 @@ plot(sFs1,'complete','upper')
 <p>
 <b>Definition via function handle</b>
 </p>
-<p>If you have a function handle for the function you could create a <code class="language-plaintext highlighter-rouge">S2FunHarmonicSym</code> via quadrature. At first lets define a symmetry and a function handle which takes <a href="vector3d.vector3d.html"><code class="language-plaintext highlighter-rouge">vector3d</code></a> as an argument and returns double:</p>
+<p>If you have a function handle for the function you could create a <code class="language-plaintext highlighter-rouge"><a href="S2FunHarmonicSym.S2FunHarmonicSym.html">S2FunHarmonicSym</a></code> via quadrature. At first lets define a symmetry and a function handle which takes <code class="language-plaintext highlighter-rouge"><a href="vector3d.vector3d.html">vector3d</a></code> as an argument and returns double:</p>
 {% highlight matlab %}
 f = @(v) 0.1*(v.theta+sin(8*v.x).*sin(8*v.y));
 cs = crystalSymmetry('6/m');
 {% endhighlight %}
-<p>Now you can call the quadrature command to get <code class="language-plaintext highlighter-rouge">sFs2</code> of type <code class="language-plaintext highlighter-rouge">S2FunHarmonicSym</code>
+<p>Now you can call the quadrature command to get <code class="language-plaintext highlighter-rouge">sFs2</code> of type <code class="language-plaintext highlighter-rouge"><a href="S2FunHarmonicSym.S2FunHarmonicSym.html">S2FunHarmonicSym</a></code>
 </p>
 {% highlight matlab %}
 sFs2 = S2FunHarmonicSym.quadrature(f, cs)
@@ -78,7 +77,6 @@ sFs2 = S2FunHarmonicSym.quadrature(f, cs)
 sFs2 = S2FunHarmonicSym (6/m)
   bandwidth: 128
   antipodal: true
-  isReal: true
 {% endhighlight %}
 <h2 id="7">Visualization</h2>
 <p>The plot commands for a <code class="language-plaintext highlighter-rouge">S2FunHarmonicSym</code> by default plot the function only on the fundamental Sector of the symmetry. E.g. the default <code class="language-plaintext highlighter-rouge">plot</code>-command look as follows</p>

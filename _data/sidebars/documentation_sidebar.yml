@@ -132,6 +132,10 @@ entries:
       url: /RotationFibre.html
       output: web
 
+    - title: "Tangent Spaces and Tangent Vectors on the Rotation Group"
+      url: /RotationTangentSpace.html
+      output: web
+
     - title: "Spin Tensor"
       url: /RotationSpinTensor.html
       output: web
@@ -371,6 +375,10 @@ entries:
 
     - title: "ODF Reconstruction"
       url: /PoleFigure2ODF.html
+      output: web
+
+    - title: "Iterative ODF Reconstruction"
+      url: /PoleFigureRefinement.html
       output: web
 
     - title: "Simulation"
@@ -712,6 +720,10 @@ entries:
       url: /GND.html
       output: web
 
+    - title: "Weighted Burgers Vector Analysis"
+      url: /WBV.html
+      output: web
+
     - title: "Import from VPSC"
       url: /VPSCImport.html
       output: web
@@ -791,7 +803,7 @@ entries:
       output: web
 
     - title: "Bingham Distribution"
-      url: /S2FunBingham.html
+      url: /S2Bingham.html
       output: web
 
     - title: "Radon Transform"
@@ -814,8 +826,8 @@ entries:
       url: /SO3FunConvolution.html
       output: web
 
-    - title: "Multivariate Functions"
-      url: /S2FunMultivariate.html
+    - title: "Vector Valued Spherical Functions"
+      url: /S2FunVectorValued.html
       output: web
 
     - title: "Spherical Kernel Functions"
@@ -907,16 +919,12 @@ entries:
       url: /SO3FunConvolution.html
       output: web
 
-    - title: "Multivariate Functions"
-      url: /SO3FunMultivariate.html
+    - title: "Vector Valued Functions"
+      url: /SO3FunVectorValued.html
       output: web
 
-    - title: "Vector Field"
+    - title: "Rotational Vector Fields"
       url: /SO3FunVectorField.html
-      output: web
-
-    - title: "Tangent Space on the Rotation Group"
-      url: /SO3FunTangentSpace.html
       output: web
 
     - title: "Rotational Kernel Functions"
@@ -972,7 +980,7 @@ entries:
       url: /ContourPlots.html
       output: web
 
-    - title: "Transparencys"
+    - title: "Transparencies"
       url: /TransparencyDemo.html
       output: web
 

@@ -1,5 +1,5 @@
 ---
-title: Transparencys
+title: Transparencies
 
 sidebar: documentation_sidebar
 permalink: TransparencyDemo.html
@@ -13,7 +13,7 @@ toc: false
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
     -->
-<title>Transparencys</title>
+<title>Transparencies</title>
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
 <meta name="DC.source" content="script_TransparencyDemo.m">
 </head>
@@ -29,7 +29,7 @@ odf = unimodalODF(orientation.id(cs))
 ori = odf.discreteSample(500)
 
 h = Miller({1,0,0},{1,1,0},{1,1,1},cs);
-plotPDF(ori,h,'MarkerFaceAlpha',0.2,'MarkerEdgeAlpha',0.5,'MarkerSize',10,'all')
+plotPDF(ori,h,'MarkerFaceAlpha',0.01,'MarkerEdgeAlpha',0.05,'MarkerSize',10,'all')
 {% endhighlight %}
 
 {% highlight plaintext %}

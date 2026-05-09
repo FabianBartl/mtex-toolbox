@@ -1,6 +1,22 @@
 
 @import url("theme.css");
 
+
+h1.post-title-main {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 0.25em;
+}
+
+
+.page-subtitle {
+  font-size: 1.5rem;      /* slightly smaller than title */
+  font-weight: 300;       /* lighter, elegant look */
+  color: #666;            /* softer grey tone */
+  margin-top: 0em; 
+}
+
 /* theme color usages  */
 .summary {
     color: var(--text-grayed);
